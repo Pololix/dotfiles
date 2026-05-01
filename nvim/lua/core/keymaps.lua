@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 local o = { noremap = true, silent = true }
 
--- quick :messages
+-- errors
 map("n", "<leader>?", "<cmd>messages<CR>", o)
 
 -- window nav
@@ -12,20 +12,20 @@ map("n", "<leader>l", "<C-w>l", o)
 
 -- splits
 map("n", "<leader>s", function()
-    vim.cmd("split")
-    vim.cmd("wincmd j")
-    require("neo-tree.command").execute({
-        reveal = true,
-        position = "float"
-    })
-end,o )
+	vim.cmd("split")
+	vim.cmd("wincmd j")
+	require("neo-tree.command").execute({
+		reveal = true,
+		position = "float"
+	})
+end, o)
 map("n", "<leader>d", function()
-    vim.cmd("vsplit")
-    vim.cmd("wincmd l")
-    require("neo-tree.command").execute({
-        reveal = true,
-        position = "float"
-    })
+	vim.cmd("vsplit")
+	vim.cmd("wincmd l")
+	require("neo-tree.command").execute({
+		reveal = true,
+		position = "float"
+	})
 end, o)
 
 -- wq
@@ -55,5 +55,4 @@ map("n", "<leader>b", builtin.buffers, o)
 
 -- - toggleterm
 map("n", "<leader>t", "<cmd>ToggleTerm direction=float<CR>", o)
-map("t", "<Esc>", "<C-\\><C-n>", o)
-map({"n", "t"}, "<S-Esc>", "<C-\\><C-n>:q!<CR>", o)
+map({ "n", "t" }, "<S-Esc>", "<C-\\><C-n>:q!<CR>", o)

@@ -45,6 +45,15 @@ return {
                         leave_dirs_open = false
                     },
                     group_empty_dirs = true
+                },
+
+                mappings = {
+                    i = {
+                        ["<A-Esc>"] = require("telescope.actions").close
+                    },
+                    n = {
+                        ["<esc>"] = require("telescope.actions").close
+                    }
                 }
             })
         end
@@ -61,8 +70,6 @@ return {
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
         },
         config = function()
-            local actions = require("telescope.actions")
-
             require("telescope").setup({
                 defaults = {
                     prompt_prefix = " ",
@@ -83,11 +90,6 @@ return {
                         "%.o$",
                         "%.a$",
                         "%.json$"
-                    },
-                    mappings = {
-                        i = {
-                            ["<Esc>"] = actions.close
-                        }
                     }
                 },
                 pickers = {
