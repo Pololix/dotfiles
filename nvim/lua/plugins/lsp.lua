@@ -23,18 +23,6 @@ return {
     { -- lspconfig
         "neovim/nvim-lspconfig",
         config = function()
-            local map = vim.keymap.set
-
-            map("n", "gh", vim.lsp.buf.hover)
-            map("n", "gs", vim.lsp.buf.signature_help)
-            map("n", "<Tab>s", "<Plug>(nvim.lsp.ctrl-s)")
-            map("n", "gd", vim.lsp.buf.definition)
-            map("n", "gD", vim.lsp.buf.declaration)
-            map("n", "gi", vim.lsp.buf.implementation)
-            map("n", "ra", vim.lsp.buf.rename)
-            map("n", "fa", vim.lsp.buf.format)
-            map("n", "ca", vim.lsp.buf.code_action)
-
             vim.diagnostic.config({
                 signs = true,
                 virtual_text = {

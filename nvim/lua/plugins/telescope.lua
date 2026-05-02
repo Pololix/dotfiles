@@ -4,7 +4,6 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
         -- "nvim-telescope/telescope-file-browser.nvim",
-        "nvim-mini/mini.icons",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
     config = function()

@@ -12,9 +12,7 @@ return {
     { -- toggleterm
         "akinsho/toggleterm.nvim",
         config = function()
-            require("toggleterm").setup({
-
-            })
+            require("toggleterm").setup()
         end
     }
 }

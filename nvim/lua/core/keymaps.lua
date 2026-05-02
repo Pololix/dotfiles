@@ -12,20 +12,20 @@ map("n", "<leader>l", "<C-w>l", o)
 
 -- splits
 map("n", "<leader>s", function()
-	vim.cmd("split")
-	vim.cmd("wincmd j")
-	require("neo-tree.command").execute({
-		reveal = true,
-		position = "float"
-	})
+    vim.cmd("split")
+    vim.cmd("wincmd j")
+    require("neo-tree.command").execute({
+        reveal = true,
+        position = "float"
+    })
 end, o)
 map("n", "<leader>d", function()
-	vim.cmd("vsplit")
-	vim.cmd("wincmd l")
-	require("neo-tree.command").execute({
-		reveal = true,
-		position = "float"
-	})
+    vim.cmd("vsplit")
+    vim.cmd("wincmd l")
+    require("neo-tree.command").execute({
+        reveal = true,
+        position = "float"
+    })
 end, o)
 
 -- wq
@@ -44,14 +44,24 @@ map("v", "K", ":m '<-2<CR>gv=gv", o)
 
 -- plugins
 -- - neotree
-map("n", "<leader>M", "<cmd>Neotree toggle left<CR>", o)
+map("n", "<leader>n", "<cmd>Neotree toggle left<CR>", o)
 
 -- - telescope
 local builtin = require("telescope.builtin")
 
 map("n", "<leader>m", builtin.find_files, o)
-map("n", "<leader>n", builtin.live_grep, o)
-map("n", "<leader>b", builtin.buffers, o)
+map("n", "<leader>M", builtin.live_grep, o)
+
+-- - lsp todo:review
+map("n", "gh", vim.lsp.buf.hover, o)
+map("n", "gs", vim.lsp.buf.signature_help, o)
+map("n", "<Tab>s", "<Plug>(nvim.lsp.ctrl-s)", o)
+map("n", "gd", vim.lsp.buf.definition, o)
+map("n", "gD", vim.lsp.buf.declaration, o)
+map("n", "gi", vim.lsp.buf.implementation, o)
+map("n", "ra", vim.lsp.buf.rename, o)
+map("n", "fa", vim.lsp.buf.format, o)
+map("n", "ca", vim.lsp.buf.code_action, o)
 
 -- - toggleterm
 map("n", "<leader>t", "<cmd>ToggleTerm direction=float<CR>", o)

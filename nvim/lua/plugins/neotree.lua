@@ -4,57 +4,65 @@ return {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
         "nvim-telescope/telescope.nvim",
-        "nvim-mini/mini.icons"
     },
     config = function()
         require("neo-tree").setup({
             close_if_last_window = true,
-            enable_git_status = true,
             enable_diagnostics = false,
+            enable_modified_markers = false,
 
-            default_component_configs = {
-                indent = {
-                    with_expanders = true
-                },
-                modified = {
-                    symbol = "!"
-                },
-                name = {
-                    trailing_slash = true,
-                    use_git_status_colors = false
-                },
-            },
+            sources = { "filesystem" },
 
             filesystem = {
+                group_empty_dirs = true,
                 filtered_items = {
                     visible = true,
-                    hide_dotfiles = true,
-                    hide_gitignored = true,
+
                     hide_by_name = {
-                        ".git",
-                        ".cache",
-                        "out",
-                        "build",
+                        "README.md",
                         "LICENSE",
-                        "README.md"
+                        "CMakeLists.txt"
+                    },
+
+                    hide_by_pattern = {
+
                     }
-                },
-                follow_current_file = {
-                    enable = true,
-                    leave_dirs_open = false
-                },
-                group_empty_dirs = true
+                }
             },
 
-            mappings = {
-                i = {
-                    ["<A-Esc>"] = require("telescope.actions").close
+            default_component_configs = {
+                icon = {
+                    folder_closed = "󰉋",
+                    folder_open = "󰝰",
+                    folder_empty = "󰉖",
+                    folder_empty_open = "󰷏",
+
+                    default = ""
                 },
-                n = {
-                    ["<esc>"] = require("telescope.actions").close
+
+                modified = {
+                    symbol = "!",
+                },
+
+                name = {
+                    trailing_slash = true,
+                    use_git_status_colors = false,
+                },
+
+                git_status = {
+                    symbols = {
+                        added     = "",
+                        deleted   = "",
+                        modified  = "",
+                        renamed   = "",
+                        untracked = "",
+                        ignored   = "",
+                        unstaged  = "",
+                        staged    = "",
+                        conflict  = "",
+                    },
                 }
             }
         })
     end
-
 }
