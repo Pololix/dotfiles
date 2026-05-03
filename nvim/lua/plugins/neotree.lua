@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
         "nvim-telescope/telescope.nvim",
+        "nvim-mini/mini.icons"
     },
     config = function()
         require("neo-tree").setup({
