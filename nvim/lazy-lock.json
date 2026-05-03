@@ -1,4 +1,5 @@
 {
+  "easy-icons.nvim": { "branch": "main", "commit": "794cbd6b3bde1a478061a9b7cf0604c327de8738" },
   "greyshift-nvim": { "branch": "main", "commit": "9329717511e4696ab0ae47e885ea0b7d581100d0" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "0c2823e0418f3d9230ff8b201c976e84de1cb401" },
