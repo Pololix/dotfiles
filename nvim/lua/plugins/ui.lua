@@ -1,6 +1,6 @@
 return {
     {
-        "Pololix/greyshift-nvim",
+        "Pololix/greyshift.nvim",
         lazy = false,
         priority = 1000,
         config = function()
@@ -10,9 +10,26 @@ return {
     },
 
     {
-        "nvim-tree/nvim-web-devicons",
+        "Pololix/easy-icons.nvim",
         config = function()
-            require("nvim-web-devicons").setup()
+            local palette = require("greyshift.palette")
+            require("easy-icons").setup({
+                stem = {
+                },
+                name = {
+                    ["init.lua"] = { icon = "󰢱", hl = palette.accent.yellow },
+                },
+                ext = {
+                    ["lua"]  = { icon = "󰢱", hl = palette.accent.blue },
+                    ["json"] = { icon = "", hl = palette.accent.yellow },
+                    ["conf"] = { icon = "", hl = palette.accent.grey },
+
+                    ["h"]    = { icon = "", hl = palette.accent.purple },
+                    ["c"]    = { icon = "", hl = palette.accent.blue },
+                    ["hpp"]  = { icon = "", hl = palette.accent.purple },
+                    ["cpp"]  = { icon = "", hl = palette.accent.blue },
+                }
+            })
         end
     }
 }

@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
-        "nvim-mini/mini.icons",
+        "Pololix/easy-icons.nvim",
         "nvim-telescope/telescope.nvim"
     },
     config = function()
@@ -37,7 +37,7 @@ return {
                     folder_empty = "󰉖",
                     folder_empty_open = "󰷏",
 
-                    default = ""
+                    default = " "
                 },
 
                 modified = {
@@ -55,7 +55,7 @@ return {
                         deleted   = "",
                         modified  = "",
                         renamed   = "",
-                        untracked = "",
+                        untracked = "",
                         ignored   = "",
                         unstaged  = "",
                         staged    = "",
