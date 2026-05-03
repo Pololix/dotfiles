@@ -7,5 +7,12 @@ return {
             require("greyshift").setup()
             vim.cmd.colorscheme("greyshift")
         end
+    },
+
+    {
+        "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("nvim-web-devicons").setup()
+        end
     }
 }

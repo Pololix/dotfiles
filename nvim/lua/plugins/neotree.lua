@@ -3,8 +3,8 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
-        "nvim-telescope/telescope.nvim",
-        "nvim-mini/mini.icons"
+        "nvim-mini/mini.icons",
+        "nvim-telescope/telescope.nvim"
     },
     config = function()
         require("neo-tree").setup({
