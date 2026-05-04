@@ -42,10 +42,6 @@ o.confirm        = true
 o.splitright     = true
 o.splitbelow     = true
 
--- folds
--- o.foldmethod        = "expr"
--- o.foldexpr          = "nvim_treesitter#foldexpr()"
-
 -- other
 o.termguicolors  = true
 o.updatetime     = 250

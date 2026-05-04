@@ -11,11 +11,14 @@ return {
         "mason-org/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
+                autoinstall = true,
                 ensure_installed = {
+                    -- language servers
                     "lua_ls",
                     "clangd"
-                },
-                autoinstall = true
+                    -- formaters and linters
+                    -- debug adapters
+                }
             })
         end
     },
@@ -28,14 +31,11 @@ return {
                 virtual_text = {
                     prefix = ">",
                     spacing = 5
-                },
-                float = {
-                    border = "rounded",
-                    source = "never",
                 }
             })
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
+            -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
             vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
@@ -43,10 +43,7 @@ return {
                     Lua = {
                         runtime = {
                             version = "LuaJIT"
-                        },
-                        diagnostics = {
-                            globals = {}
-                        },
+                        }
                     }
                 }
             })

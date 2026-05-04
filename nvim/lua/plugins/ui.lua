@@ -17,12 +17,13 @@ return {
                 stem = {
                 },
                 name = {
-                    ["init.lua"] = { icon = "󰢱", hl = palette.accent.yellow },
+                    ["init.lua"]   = { icon = "󰢱", hl = palette.accent.yellow },
+                    [".gitignore"] = { icon = "󰊢", hl = palette.accent.red },
                 },
                 ext = {
                     ["lua"]  = { icon = "󰢱", hl = palette.accent.blue },
                     ["json"] = { icon = "", hl = palette.accent.yellow },
-                    ["conf"] = { icon = "", hl = palette.accent.grey },
+                    ["conf"] = { icon = "", hl = palette.accent.grey },
 
                     ["h"]    = { icon = "", hl = palette.accent.purple },
                     ["c"]    = { icon = "", hl = palette.accent.blue },
