@@ -1,9 +1,10 @@
 - plugins: 
     git related
     telescope
-    lsp related
 
 - tasks: 
     keymap convention
     integrate git
     figure out build
+    symbols for diagnostics
+    highlighting for folds

@@ -17,6 +17,7 @@ return {
                 name = {
                     ["init.lua"]   = { icon = "󰢱", hl = palette.accent.yellow },
                     [".gitignore"] = { icon = "󰊢", hl = palette.accent.red },
+                    ["todo%.txt"]  = { icon = "", hl = palette.accent.white },
                 },
                 ext = {
                     ["lua"]  = { icon = "󰢱", hl = palette.accent.blue },
