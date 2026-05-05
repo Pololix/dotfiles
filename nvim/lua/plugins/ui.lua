@@ -14,8 +14,6 @@ return {
         config = function()
             local palette = require("greyshift.palette")
             require("easy-icons").setup({
-                stem = {
-                },
                 name = {
                     ["init.lua"]   = { icon = "󰢱", hl = palette.accent.yellow },
                     [".gitignore"] = { icon = "󰊢", hl = palette.accent.red },

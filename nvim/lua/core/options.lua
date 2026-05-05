@@ -1,4 +1,4 @@
-local o          = vim.opt
+local o = vim.opt
 
 -- number line
 o.number         = true
@@ -42,18 +42,30 @@ o.confirm        = true
 o.splitright     = true
 o.splitbelow     = true
 
+-- folds
+o.foldenable     = true
+o.foldcolumn     = "1"
+o.foldlevel      = 99
+o.foldlevelstart = 99
+o.foldminlines   = 10
+
 -- other
 o.termguicolors  = true
 o.updatetime     = 250
 o.timeoutlen     = 500
 o.clipboard      = "unnamedplus"
 o.list           = true
+
+-- chars
 o.listchars      = {
-    extends = "»",
+    extends   = "",
+    precedes  = ""
 }
 o.fillchars      = {
-    eob = " ",
-    -- fold = " ",
-    -- foldopen = " ",
-    -- foldclose = " "
+    eob       = " ",
+    fold      = " ",
+    foldopen  = "",
+    foldclose = "",
+    foldinner = " ",
+    foldsep   = " ",
 }

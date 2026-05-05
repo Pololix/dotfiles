@@ -52,7 +52,7 @@ local builtin = require("telescope.builtin")
 map("n", "<leader>m", builtin.find_files, o)
 map("n", "<leader>M", builtin.live_grep, o)
 
--- - lsp todo:review
+-- - lsp
 map("n", "gh", vim.lsp.buf.hover, o)
 map("n", "gs", vim.lsp.buf.signature_help, o)
 map("n", "<Tab>s", "<Plug>(nvim.lsp.ctrl-s)", o)
@@ -66,3 +66,12 @@ map("n", "ca", vim.lsp.buf.code_action, o)
 -- - toggleterm
 map("n", "<leader>t", "<cmd>ToggleTerm direction=float<CR>", o)
 map({ "n", "t" }, "<S-Esc>", "<C-\\><C-n>:q!<CR>", o)
+
+-- - ufo
+local ufo = require("ufo")
+
+map("n", "zr", ufo.openAllFolds, o)
+map("n", "zm", ufo.closeAllFolds, o)
+map("n", "K", function()
+    ufo.peekFoldedLinesUnderCursor()
+end, o)
