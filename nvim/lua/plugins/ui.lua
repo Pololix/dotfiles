@@ -15,9 +15,10 @@ return {
             local palette = require("greyshift.palette")
             require("easy-icons").setup({
                 name = {
-                    ["init.lua"]   = { icon = "󰢱", hl = palette.accent.yellow },
-                    [".gitignore"] = { icon = "󰊢", hl = palette.accent.red },
-                    ["todo%.txt"]  = { icon = "", hl = palette.accent.white },
+                    ["init.lua"]     = { icon = "󰢱", hl = palette.accent.purple },
+                    ["hyprland.lua"] = { icon = "󰢱", hl = palette.accent.purple },
+                    [".gitignore"]   = { icon = "󰊢", hl = palette.accent.red },
+                    ["todo&.txt"]    = { icon = "", hl = palette.accent.white },
                 },
                 ext = {
                     ["lua"]  = { icon = "󰢱", hl = palette.accent.blue },

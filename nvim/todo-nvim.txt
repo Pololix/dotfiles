@@ -7,4 +7,4 @@
     integrate git
     figure out build
     symbols for diagnostics
-    highlighting for folds
+    warmer green, more warmcolor-dominance
