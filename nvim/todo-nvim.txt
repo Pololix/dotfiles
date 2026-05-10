@@ -7,4 +7,3 @@
     integrate git
     figure out build
     symbols for diagnostics
-    warmer green, more warmcolor-dominance

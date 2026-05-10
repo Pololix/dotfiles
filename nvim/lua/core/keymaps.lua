@@ -10,6 +10,10 @@ map("n", "<leader>j", "<C-w>j", o)
 map("n", "<leader>k", "<C-w>k", o)
 map("n", "<leader>l", "<C-w>l", o)
 
+-- search
+map("n", "n", "n:zz<CR>")
+map("n", "N", "N:zz<CR>")
+
 -- splits
 map("n", "<leader>s", function()
     vim.cmd("split")

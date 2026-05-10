@@ -15,20 +15,21 @@ return {
             local palette = require("greyshift.palette")
             require("easy-icons").setup({
                 name = {
-                    ["init.lua"]     = { icon = "󰢱", hl = palette.accent.purple },
-                    ["hyprland.lua"] = { icon = "󰢱", hl = palette.accent.purple },
-                    [".gitignore"]   = { icon = "󰊢", hl = palette.accent.red },
-                    ["todo&.txt"]    = { icon = "", hl = palette.accent.white },
+                    ["init.lua"]     = { icon = "󰢱", hl = palette.base.purple.dark },
+                    ["hyprland.lua"] = { icon = "󰢱", hl = palette.base.purple.dark },
+
+                    [".gitignore"]   = { icon = "󰊢", hl = palette.base.red.dark },
+                    ["todo&.txt"]    = { icon = "", hl = palette.base.white },
                 },
                 ext = {
-                    ["lua"]  = { icon = "󰢱", hl = palette.accent.blue },
-                    ["json"] = { icon = "", hl = palette.accent.yellow },
-                    ["conf"] = { icon = "", hl = palette.accent.grey },
+                    ["lua"]  = { icon = "󰢱", hl = palette.base.blue.dark },
+                    ["json"] = { icon = "", hl = palette.base.yellow.dark },
+                    ["conf"] = { icon = "", hl = palette.base.grey.lighter },
 
-                    ["h"]    = { icon = "", hl = palette.accent.purple },
-                    ["c"]    = { icon = "", hl = palette.accent.blue },
-                    ["hpp"]  = { icon = "", hl = palette.accent.purple },
-                    ["cpp"]  = { icon = "", hl = palette.accent.blue },
+                    ["h"]    = { icon = "", hl = palette.base.purple.dark },
+                    ["c"]    = { icon = "", hl = palette.base.blue.dark },
+                    ["hpp"]  = { icon = "", hl = palette.base.purple.dark },
+                    ["cpp"]  = { icon = "", hl = palette.base.blue.dark },
                 }
             })
         end
