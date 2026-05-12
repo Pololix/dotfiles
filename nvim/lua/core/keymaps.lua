@@ -11,8 +11,9 @@ map("n", "<leader>k", "<C-w>k", o)
 map("n", "<leader>l", "<C-w>l", o)
 
 -- search
-map("n", "n", "n:zz<CR>")
-map("n", "N", "N:zz<CR>")
+map("n", "n", "nzz", o)
+map("n", "N", "Nzz", o)
+map("n", "<esc>", ":noh<CR>", o)
 
 -- splits
 map("n", "<leader>s", function()
