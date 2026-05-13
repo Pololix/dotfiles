@@ -1,12 +1,16 @@
-local exec = hl.exec_cmd
+local M = {
+    "hyprlock -c ~/.config/hypr/plugins/hyprlock.conf",
+    "hypridle",
+    "waybar",
+    "mako",
+    "nm-applet",
+    "blueman-applet",
+    "wl-paste --type text --watch cliphist store",
+    "wl-paste --type image --watch cliphist store",
+}
 
 hl.on("hyprland.start", function()
-    exec("hyprlock --immediate")
-    exec("hypridle")
-    exec("waybar")
-    exec("mako")
-    exec("nm-applet")
-    exec("blueman-applet")
-    exec("wl-paste --type text --watch cliphist store")
-    exec("wl-paste --type image --watch cliphist store")
+    for _, cmd in pairs(M) do
+        hl.exec_cmd(cmd)
+    end
 end)
