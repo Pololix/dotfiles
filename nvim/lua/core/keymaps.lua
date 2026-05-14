@@ -1,5 +1,6 @@
-local map = vim.keymap.set
-local o = { noremap = true, silent = true }
+local map    = vim.keymap.set
+local o      = { noremap = true, silent = true }
+local extras = require("extras")
 
 -- errors
 map("n", "<leader>?", "<cmd>messages<CR>", o)
@@ -50,6 +51,15 @@ map("v", "K", ":m '<-2<CR>gv=gv", o)
 -- plugins
 -- - neotree
 map("n", "<leader>n", "<cmd>Neotree toggle left<CR>", o)
+map("n", "<leader><CR>", function()
+    local state = require("neo-tree.sources.manager").get_state("filesystem")
+    local node  = state.tree:get_node()
+    local depth = vim.v.count > 0 and vim.v.count or 5
+
+    extras.neotree.counted_expand(state, node, depth)
+
+    require("neo-tree.ui.renderer").redraw(state)
+end, o)
 
 -- - telescope
 local builtin = require("telescope.builtin")

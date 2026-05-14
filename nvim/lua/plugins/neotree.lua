@@ -15,6 +15,7 @@ return {
 
             filesystem = {
                 group_empty_dirs = true,
+
                 filtered_items = {
                     visible = true,
 
@@ -22,10 +23,6 @@ return {
                         "README.md",
                         "LICENSE",
                         "CMakeLists.txt"
-                    },
-
-                    hide_by_pattern = {
-
                     }
                 }
             },
@@ -41,7 +38,7 @@ return {
                 },
 
                 modified = {
-                    symbol = "!",
+                    symbol = "󱙃",
                 },
 
                 name = {
