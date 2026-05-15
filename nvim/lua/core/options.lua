@@ -47,6 +47,7 @@ o.foldenable     = true
 o.foldcolumn     = "2"
 o.foldlevel      = 99
 o.foldlevelstart = 99
+o.foldtext       = ""
 
 -- other
 o.termguicolors  = true

@@ -7,3 +7,4 @@
     integrate git
     figure out build
     symbols for diagnostics
+    counted expand (recursive collapse and expand)

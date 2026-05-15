@@ -1,19 +1,19 @@
 {
   "easy-icons.nvim": { "branch": "main", "commit": "fcd454accae77f830caf26bcdcc2ef8878a3f648" },
-  "greyshift.nvim": { "branch": "main", "commit": "2c3adc1c732bed81ee0735f0a7e98f95f462d281" },
+  "greyshift.nvim": { "branch": "main", "commit": "b3507fd3b78471c8e6f264275ab33c566bcff362" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "eaa34887d444cb002e1b165fac399ae4bbc771f7" },
-  "mason.nvim": { "branch": "main", "commit": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9" },
+  "mason.nvim": { "branch": "main", "commit": "8e921c2b68571e978db5d4d3fef9c9a7f8755473" },
   "neo-tree.nvim": { "branch": "main", "commit": "ff84e6e1608b24773f1b73cd4182e0bcf2b3d637" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-autopairs": { "branch": "master", "commit": "7b9923abad60b903ece7c52940e1321d39eccc79" },
-  "nvim-lspconfig": { "branch": "master", "commit": "36bb266b006b570889f092d57dffad635741c122" },
+  "nvim-lspconfig": { "branch": "master", "commit": "ca6d15fc4f01082bff9d3a7f4b60281b16644142" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
   "nvim-ufo": { "branch": "main", "commit": "ab3eb124062422d276fae49e0dd63b3ad1062cfc" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "b25b749b9db64d375d782094e2b9dce53ad53a40" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "master", "commit": "f04ab730b8f9c6bf3f54a206d0dcddfd70c52d59" },
+  "telescope.nvim": { "branch": "master", "commit": "aa4ad82068176e9610034eedcf945289e90e5b0a" },
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" }
 }

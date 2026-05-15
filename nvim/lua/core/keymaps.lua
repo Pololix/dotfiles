@@ -50,15 +50,25 @@ map("v", "K", ":m '<-2<CR>gv=gv", o)
 
 -- plugins
 -- - neotree
-map("n", "<leader>n", "<cmd>Neotree toggle left<CR>", o)
-map("n", "<leader><CR>", function()
-    local state = require("neo-tree.sources.manager").get_state("filesystem")
+local manager  = require("neo-tree.sources.manager")
+local renderer = require("neo-tree.ui.renderer")
+
+map("n", "<leader>n", function()
+    local state = manager.get_state("filesystem")
+
+    if renderer.window_exists(state) and vim.api.nvim_get_current_win() == state.winid then
+        vim.cmd("Neotree close")
+    else
+        vim.cmd("Neotree focus left")
+    end
+end, o)
+map("n", "<leader>N", "<cmd>Neotree toggle float<CR>", o)
+map("n", "<S-CR>", function()
+    local state = manager.get_state("filesystem")
     local node  = state.tree:get_node()
-    local depth = vim.v.count > 0 and vim.v.count or 5
+    local depth = vim.v.count
 
-    extras.neotree.counted_expand(state, node, depth)
-
-    require("neo-tree.ui.renderer").redraw(state)
+    extras.neotree.mass_toggle(state, node, depth)
 end, o)
 
 -- - telescope

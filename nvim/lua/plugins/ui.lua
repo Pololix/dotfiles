@@ -12,7 +12,7 @@ return {
     {
         "Pololix/easy-icons.nvim",
         config = function()
-            local palette = require("greyshift.palette")
+            local palette = require("greyshift.palette").get()
             require("easy-icons").setup({
                 name = {
                     ["init.lua"]     = { icon = "󰢱", hl = palette.purple.dark },
