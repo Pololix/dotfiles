@@ -1,3 +1,3 @@
 return {
-    neotree = require("extras.neotree")
+    neotree = require("extras.neotree"),
 }

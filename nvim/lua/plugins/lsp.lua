@@ -4,23 +4,25 @@ return {
         build = ":MasonUpdate",
         config = function()
             require("mason").setup()
-        end
+        end,
     },
 
-    { -- mason-lspconfig
-        "mason-org/mason-lspconfig.nvim",
+    { -- mason-tool-installer
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
         config = function()
-            require("mason-lspconfig").setup({
-                autoinstall = true,
+            require("mason-tool-installer").setup({
+                auto_update = false,
+                run_on_start = true,
                 ensure_installed = {
                     -- language servers
-                    "lua_ls",
-                    "clangd"
-                    -- formaters and linters
+                    "lua-language-server",
+                    -- formaters
+                    "stylua",
+                    -- linters
                     -- debug adapters
-                }
+                },
             })
-        end
+        end,
     },
 
     { -- lspconfig
@@ -30,15 +32,14 @@ return {
                 signs = true,
                 virtual_text = {
                     prefix = ">",
-                    spacing = 5
-                }
+                    spacing = 5,
+                },
             })
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            -- ufo folds
             capabilities.textDocument.foldingRange = {
                 dynamicRegistration = false,
-                lineFoldingOnly     = true
+                lineFoldingOnly = true,
             }
 
             -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -48,42 +49,18 @@ return {
                 settings = {
                     Lua = {
                         runtime = {
-                            version = "LuaJIT"
-                        }
-                    }
-                }
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = {
+                                "vim",
+                                "hl",
+                            },
+                        },
+                    },
+                },
             })
             vim.lsp.enable("lua_ls")
-
-            vim.lsp.config("clangd", {
-                capabilities = capabilities,
-                cmd = {
-                    "clangd",
-                    "--background-index",
-                    "--clang-tidy",
-                    "--header-insertion=iwyu",
-                    "--completion-style=detailed",
-                    "--function-arg-placeholders",
-                    "--fallback-style=llvm"
-                },
-                root_markers = {
-                    "compile_commands.json",
-                    "compile_flags.txt",
-                    ".clangd",
-                    ".git"
-                },
-                settings = {
-                    clangd = {
-                        InalyHints = {
-                            Designators = true,
-                            Enabled = true,
-                            ParameterNames = true,
-                            DeducedTypes = true
-                        }
-                    }
-                }
-            })
-            vim.lsp.enable("clangd")
-        end
-    }
+        end,
+    },
 }

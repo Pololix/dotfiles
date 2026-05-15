@@ -1,10 +1,8 @@
 - plugins: 
     git related
-    telescope
 
 - tasks: 
     keymap convention
     integrate git
-    figure out build
     symbols for diagnostics
-    counted expand (recursive collapse and expand)
+    separate concerns for thing like the different lsps/formatters/linters...

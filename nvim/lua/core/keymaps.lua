@@ -1,5 +1,5 @@
-local map    = vim.keymap.set
-local o      = { noremap = true, silent = true }
+local map = vim.keymap.set
+local o = { noremap = true, silent = true }
 local extras = require("extras")
 
 -- errors
@@ -22,7 +22,7 @@ map("n", "<leader>s", function()
     vim.cmd("wincmd j")
     require("neo-tree.command").execute({
         reveal = true,
-        position = "float"
+        position = "float",
     })
 end, o)
 map("n", "<leader>d", function()
@@ -30,7 +30,7 @@ map("n", "<leader>d", function()
     vim.cmd("wincmd l")
     require("neo-tree.command").execute({
         reveal = true,
-        position = "float"
+        position = "float",
     })
 end, o)
 
@@ -50,7 +50,7 @@ map("v", "K", ":m '<-2<CR>gv=gv", o)
 
 -- plugins
 -- - neotree
-local manager  = require("neo-tree.sources.manager")
+local manager = require("neo-tree.sources.manager")
 local renderer = require("neo-tree.ui.renderer")
 
 map("n", "<leader>n", function()
@@ -65,7 +65,7 @@ end, o)
 map("n", "<leader>N", "<cmd>Neotree toggle float<CR>", o)
 map("n", "<S-CR>", function()
     local state = manager.get_state("filesystem")
-    local node  = state.tree:get_node()
+    local node = state.tree:get_node()
     local depth = vim.v.count
 
     extras.neotree.mass_toggle(state, node, depth)
@@ -97,6 +97,4 @@ local ufo = require("ufo")
 
 map("n", "zr", ufo.openAllFolds, o)
 map("n", "zm", ufo.closeAllFolds, o)
-map("n", "K", function()
-    ufo.peekFoldedLinesUnderCursor()
-end, o)
+map("n", "K", ufo.peekFoldedLinesUnderCursor, o)

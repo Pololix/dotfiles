@@ -1,12 +1,14 @@
-local M        = {}
+local M = {}
 
-local def      = 99
+local def = 3
 
 local renderer = require("neo-tree.ui.renderer")
-local filesys  = require("neo-tree.sources.filesystem")
+local filesys = require("neo-tree.sources.filesystem")
 
 function M.mass_toggle(state, root, depth)
-    if root.type ~= "directory" then return end
+    if root.type ~= "directory" then
+        return
+    end
 
     depth = (depth and depth > 0) and depth or def
     if root:is_expanded() then
@@ -18,7 +20,9 @@ function M.mass_toggle(state, root, depth)
 end
 
 function M.exp_recursive(state, node, remainder)
-    if node.type ~= "directory" or remainder <= 0 then return end
+    if node.type ~= "directory" or remainder <= 0 then
+        return
+    end
 
     if not node:is_expanded() then
         filesys.toggle_directory(state, node, nil, false, false)
@@ -35,7 +39,9 @@ function M.exp_recursive(state, node, remainder)
 end
 
 function M.col_recursive(state, node)
-    if node.type ~= "directory" or not node:is_expanded() then return end
+    if node.type ~= "directory" or not node:is_expanded() then
+        return
+    end
 
     local children = state.tree:get_nodes(node:get_id())
     for _, child in ipairs(children) do
