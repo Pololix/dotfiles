@@ -1,5 +1,5 @@
 local M = {
-    "hyprlock -c ~/.config/hypr/plugins/hyprlock.conf",
+    "hyprlock",
     "hypridle",
     "waybar",
     "mako",
@@ -10,7 +10,7 @@ local M = {
 }
 
 hl.on("hyprland.start", function()
-    for _, cmd in pairs(M) do
+    for _, cmd in ipairs(M) do
         hl.exec_cmd(cmd)
     end
 end)

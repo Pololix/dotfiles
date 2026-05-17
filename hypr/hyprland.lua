@@ -9,7 +9,6 @@ require("core/keymaps/keymaps")
 require("core/looks/animations")
 require("core/looks/decorations")
 require("core/looks/general")
-require("core/looks/misc")
 
 require("core/rules/win-rules")
 require("core/rules/wks-rules")
