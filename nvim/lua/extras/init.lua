@@ -1,3 +1,5 @@
-return {
-    neotree = require("extras.neotree"),
-}
+local M = {}
+
+M.neotree = require("extras.neotree")
+
+return M

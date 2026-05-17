@@ -1,8 +1,9 @@
 - plugins: 
-    git related
 
 - tasks: 
     keymap convention
     integrate git
     symbols for diagnostics
     separate concerns for thing like the different lsps/formatters/linters...
+
+- refactor:
