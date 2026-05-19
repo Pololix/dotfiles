@@ -19,8 +19,10 @@ require("lazy").setup("plugins", {
     change_detection = {
         notify = false,
     },
+    git = {
+        url_format = "git@github.com:%s.git",
+    },
 })
 
-require("core.autocmds")
 require("core.keymaps")
 require("core.config")

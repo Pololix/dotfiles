@@ -20,7 +20,7 @@ local M = {
 
     -- search related
     { "n", "n", "nzz", o },
-    { "n", "N", "Nzz", o },
+    { "n", "<S-n>", "Nzz", o },
     { "n", "<esc>", "<cmd>noh<CR>", o },
 
     -- line movement
@@ -28,6 +28,12 @@ local M = {
     { "v", "<Tab>", ">gv", o },
     { "v", "<S-j>", "<cmd>m '>+1<CR>gv=gv", o },
     { "v", "<S-k>", "<cmd>m '<-2<CR>gv=gv", o },
+
+    -- lsp related
+    { "n", "gd", vim.lsp.buf.definition, o },
+    { "n", "gh", vim.lsp.buf.hover, o },
+    { "n", "gr", vim.lsp.buf.rename, o },
+    { "n", "ca", vim.lsp.buf.code_action, o },
 
     -- plugins
     -- neotree
@@ -48,6 +54,7 @@ local M = {
         end,
         o,
     },
+    { "n", "<leader><S-n>", "<cmd>Neotree focus float<CR>", o },
     {
         "n",
         "<S-CR>",
@@ -56,7 +63,7 @@ local M = {
             local node = state.tree:get_node()
             local depth = vim.v.count
 
-            require("extras").neotree.mass_toggle(state, node, depth)
+            require("extras.neotree").mass_toggle(state, node, depth)
         end,
         o,
     },
@@ -64,6 +71,24 @@ local M = {
     -- telescope
     { "n", "<leader>m", require("telescope.builtin").find_files, o },
     { "n", "<leader>M", require("telescope.builtin").live_grep, o },
+
+    -- toggleterm
+    { "n", "<leader>t", "<cmd>ToggleTerm<CR>", o },
+
+    -- lazygit
+    { "n", "<leader>g", "<cmd>LazyGit<CR>", o },
+
+    -- conform
+    {
+        "n",
+        "fa",
+        function()
+            require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        o,
+    },
+
+    -- lint
 }
 
 for _, k in ipairs(M) do

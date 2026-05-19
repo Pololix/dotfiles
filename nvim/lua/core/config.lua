@@ -42,11 +42,10 @@ local M = {
     splitbelow = true,
 
     -- folds
-    foldenable = true,
+    foldmethod = "expr",
+    foldexpr = "v:lua.vim.treesitter.foldexpr()",
     foldcolumn = "2",
-    foldlevel = 99,
     foldlevelstart = 99,
-    foldtext = "",
 
     -- other
     termguicolors = true,

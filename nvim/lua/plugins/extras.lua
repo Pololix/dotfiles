@@ -1,7 +1,9 @@
 local autopairs = {
     "windwp/nvim-autopairs",
     config = function()
-        require("opts.autopairs").setup()
+        require("nvim-autopairs").setup({
+            check_ts = true,
+        })
     end,
 }
 
@@ -12,14 +14,4 @@ local toggleterm = {
     end,
 }
 
-local ufo = {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-        "kevinhwang91/promise-async",
-    },
-    config = function()
-        require("opts.ufo").setup()
-    end,
-}
-
-return { autopairs, toggleterm, ufo }
+return { autopairs, toggleterm }

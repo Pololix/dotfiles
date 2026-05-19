@@ -2,8 +2,6 @@
 
 - tasks: 
     keymap convention
-    integrate git
-    symbols for diagnostics
-    separate concerns for thing like the different lsps/formatters/linters...
+    for each language: lint, conform and lsp integration
 
 - refactor:

@@ -1,6 +1,7 @@
 local lazygit = {
     "kdheepak/lazygit.nvim",
     dependencies = {
+        "Pololix/easy-icons.nvim",
         "nvim-lua/plenary.nvim",
     },
     cmd = {
@@ -10,9 +11,6 @@ local lazygit = {
         "LazyGitFilter",
         "LazyGitFilterCurrentFile",
     },
-    config = function()
-        require("opts.lazygit").setup()
-    end,
 }
 
-return { lazygit }
+return lazygit
