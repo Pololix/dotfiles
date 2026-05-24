@@ -8,8 +8,13 @@ sudo bash ~/dotfiles/scirpts/setup-git.sh
 ln -s ~/dotfiles/apps/nvim ~/.config/nvim
 ln -s ~/dotfiles/apps/kitty ~/.config/kitty
 
-ln -s ~/dotfiles/desktop/hypr ~/.config/hypr
-ln -s ~/dotfiles/desktop/fuzzel ~/.config/fuzzel
-ln -s ~/dotfiles/desktop/mako ~/.config/mako
+ln -s ~/dotfiles/desktop-enviroment/hypr ~/.config/hypr
+ln -s ~/dotfiles/desktop-enviroment/fuzzel ~/.config/fuzzel
+ln -s ~/dotfiles/desktop-enviroment/mako ~/.config/mako
+
+# Setup fonts
+mkdir -p ~/.local/share/fonts
+cp ~/dotfiles/assets/fonts/*.ttf ~/.local/share/fonts
+fc-cache -fv
 
 # Once finished add ssh key to github from cat ~/.shh/id_ed25518.pub
