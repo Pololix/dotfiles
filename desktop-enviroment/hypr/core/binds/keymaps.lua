@@ -30,9 +30,11 @@ local M = {
     ["XF86AudioLowerVolume"] = exc("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
     ["XF86AudioMute"] = exc("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
 
-    -- Misc
+    -- Screenshots
     ["SUPER + SHIFT + s"] = exc("bash ~/dotfiles/scripts/screenshot-region.sh"),
-    ["CONTROL + v"] = exc("bash ~/dotfiles/scripts/pick.sh"),
+
+    -- Clipboard
+    ["CONTROL + SHIFT + v"] = exc("bash ~/dotfiles/scripts/pick.sh"),
 }
 
 for key, action in pairs(M) do
