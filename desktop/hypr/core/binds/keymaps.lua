@@ -1,4 +1,3 @@
----@diagnostic disable: unused-local
 local exc = hl.dsp.exec_cmd
 local win = hl.dsp.window
 
@@ -11,7 +10,7 @@ local MMB = ":mouse274"
 local M = {
     -- Quick apps
     [mod .. " + Return"] = exc("kitty"),
-    [mod .. " + Space"] = exc("rofi -show drun"),
+    [mod .. " + Space"] = exc("fuzzel"),
     [mod .. " + Escape"] = exc("hyprlock"),
 
     -- Window nav
@@ -30,6 +29,8 @@ local M = {
     ["XF86AudioRaiseVolume"] = exc("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
     ["XF86AudioLowerVolume"] = exc("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
     ["XF86AudioMute"] = exc("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+
+    ["SUPER + SHIFT + s"] = exc("bash ~/dotfiles/scripts/screenshot-region.sh"),
 }
 
 for key, action in pairs(M) do
