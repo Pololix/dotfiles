@@ -16,7 +16,7 @@ local neotree = {
                 indent = {
                     with_expanders = true,
                     expander_collapsed = "",
-                    expander_expanded  = "",
+                    expander_expanded = "",
                 },
 
                 icon = {
@@ -52,8 +52,8 @@ local neotree = {
                 },
 
                 symlink_target = {
-                    enabled = true
-                }
+                    enabled = true,
+                },
             },
 
             sources = { "filesystem" },
@@ -72,8 +72,8 @@ local neotree = {
                 },
 
                 follow_current_file = {
-                    enabled = true
-                }
+                    enabled = true,
+                },
             },
             event_handlers = {
                 {
@@ -81,9 +81,11 @@ local neotree = {
                     handler = function(args)
                         vim.cmd("stopinsert")
                         vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
-                    end
-                }
-            }
+                    end,
+                },
+            },
+
+            -- pTODO: create autocmd to remove signcolumn from neotree buffers
         })
     end,
 }

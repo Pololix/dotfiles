@@ -2,6 +2,5 @@
 
 - tasks: 
     keymap convention
-    for each language: lint, conform and lsp integration
 
 - refactor:

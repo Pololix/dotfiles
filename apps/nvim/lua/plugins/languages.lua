@@ -1,5 +1,3 @@
-local languages = require("extras.languages")
-
 local mason = {
     "mason-org/mason.nvim",
     build = ":MasonUpdate",
@@ -15,11 +13,13 @@ local mason_tool_installer = {
             auto_update = false,
             run_on_start = true,
 
-            ensure_installed = languages.flatten(
-                languages.get("ls"),
-                languages.get("formatter"),
-                languages.get("linter")
-            ),
+            ensure_installed = {
+                -- language servers
+                "lua-language-server",
+                -- linters
+                -- formatters
+                -- debuggers
+            },
         })
     end,
 }
@@ -52,7 +52,27 @@ local lsp_config = {
             require("blink.cmp").get_lsp_capabilities()
         )
 
-        languages.setup_ls(capabilities)
+        vim.lsp.config("lua_ls", {
+            cmd = { "lua-language-server" },
+            capabilities = capabilities,
+
+            filetypes = { "lua" },
+            root_markers = { ".luarc.json", ".luarc.jsonc", "stylua.toml", ".git" },
+            single_file_support = true,
+
+            settings = {
+                Lua = {
+                    runtime = { version = "LuaJIT" },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = { vim.env.VIMRUNTIME },
+                    },
+                    telemetry = { enable = false },
+                },
+            },
+        })
+
+        vim.lsp.enable("lua_ls")
     end,
 }
 
@@ -60,7 +80,9 @@ local conform = {
     "stevearc/conform.nvim",
     config = function()
         require("conform").setup({
-            formatters_by_ft = languages.get_by_ft("formatter"),
+            formatters_by_ft = {
+                lua = { "stylua" },
+            },
 
             format_on_save = function()
                 return { timeout_ms = 500, lsp_fallback = true }
@@ -69,20 +91,4 @@ local conform = {
     end,
 }
 
-local lint = {
-    "mfussenegger/nvim-lint",
-    config = function()
-        local lint = require("lint")
-
-        lint.linters_by_ft = languages.get_by_ft("linter")
-
-        vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
-            group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
-            callback = function()
-                lint.try_lint()
-            end,
-        })
-    end,
-}
-
-return { mason, mason_tool_installer, lsp_config, conform, lint }
+return { mason, mason_tool_installer, lsp_config, conform }

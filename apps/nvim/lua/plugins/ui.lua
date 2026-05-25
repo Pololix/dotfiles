@@ -1,5 +1,3 @@
-local languages = require("extras.languages")
-
 local greyshift = {
     "Pololix/greyshift.nvim",
     lazy = false,
@@ -23,17 +21,14 @@ local easyicons = {
                 ["hyprland.lua"] = { icon = "󰢱", hl = palette.purple.dark },
 
                 [".gitignore"] = { icon = "󰊢", hl = palette.red.dark },
-                ["todo&.txt"] = { icon = "", hl = palette.white },
+                ["todo.md"] = { icon = "", hl = palette.white },
             },
             ext = {
-                ["lua"] = { icon = "󰢱", hl = palette.blue.dark },
                 ["json"] = { icon = "", hl = palette.yellow.dark },
                 ["conf"] = { icon = "", hl = palette.grey.lighter },
 
-                ["h"] = { icon = "", hl = palette.purple.dark },
-                ["c"] = { icon = "", hl = palette.blue.dark },
-                ["hpp"] = { icon = "", hl = palette.purple.dark },
-                ["cpp"] = { icon = "", hl = palette.blue.dark },
+                ["lua"] = { icon = "󰢱", hl = palette.blue.dark },
+                ["sh"] = { icon = "", hl = palette.white },
             },
         })
     end,

@@ -87,8 +87,6 @@ local M = {
         end,
         o,
     },
-
-    -- lint
 }
 
 for _, k in ipairs(M) do

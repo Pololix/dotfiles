@@ -1,5 +1,3 @@
-local languages = require("extras.languages")
-
 local treesitter = {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
@@ -10,7 +8,7 @@ local treesitter = {
             sync_install = false,
 
             ensure_installed = {
-                unpack(languages.get("parser")),
+                "lua",
             },
 
             highlight = {
