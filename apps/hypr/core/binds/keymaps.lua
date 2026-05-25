@@ -31,7 +31,7 @@ local M = {
     ["XF86AudioMute"] = exc("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
 
     -- Screenshots
-    ["SUPER + SHIFT + s"] = exc("bash ~/dotfiles/scripts/screenshot-region.sh"),
+    ["SUPER + SHIFT + s"] = exc("bash ~/dotfiles/scripts/screenshot.sh region"),
 
     -- Clipboard
     ["CONTROL + SHIFT + v"] = exc("bash ~/dotfiles/scripts/pick.sh"),
