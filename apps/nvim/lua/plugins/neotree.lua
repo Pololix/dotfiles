@@ -6,6 +6,7 @@ local neotree = {
         "Pololix/easy-icons.nvim",
         "nvim-telescope/telescope.nvim",
     },
+
     config = function()
         require("neo-tree").setup({
             close_if_last_window = true,

@@ -2,6 +2,7 @@ local greyshift = {
     "Pololix/greyshift.nvim",
     lazy = false,
     priority = 1000,
+
     config = function()
         require("greyshift").setup()
         vim.cmd.colorscheme("greyshift")
@@ -12,6 +13,7 @@ local easyicons = {
     "Pololix/easy-icons.nvim",
     lazy = false,
     priority = 999,
+
     config = function()
         local palette = require("greyshift.palette").get()
 

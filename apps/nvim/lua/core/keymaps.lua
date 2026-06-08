@@ -74,6 +74,7 @@ local M = {
 
     -- toggleterm
     { "n", "<leader>t", "<cmd>ToggleTerm<CR>", o },
+    { "t", "<esc>", "<cmd>q!<CR>", o},
 
     -- lazygit
     { "n", "<leader>g", "<cmd>LazyGit<CR>", o },

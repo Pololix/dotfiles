@@ -6,6 +6,7 @@ local telescope = {
         "Pololix/easy-icons.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
+
     config = function()
         require("telescope").setup({
             defaults = {
@@ -16,7 +17,7 @@ local telescope = {
                 sorting_strategy = "ascending",
                 layout_strategy = "center",
 
-                path_display = { "smmart" },
+                path_display = { "smart" },
                 file_ignore_patterns = {
                     "%.git/",
                     "%.cache/",
@@ -37,7 +38,6 @@ local telescope = {
             },
         })
 
-        require("telescope").load_extension("fzf")
         require("telescope").load_extension("ui-select")
     end,
 }
