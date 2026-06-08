@@ -52,4 +52,19 @@ local lsp_config = {
     end,
 }
 
-return { mason, mason_lspconfig, lsp_config }
+local conform = {
+    "stevearc/conform.nvim",
+
+    config = function()
+        require("conform").setup({
+            fomatters_by_ft = {
+                lua = { "stylua "},
+                rust = { "rustfmt" },
+                gdscript = { "gdformat" },
+            },
+            format_on_save = true,
+        })
+    end
+}
+
+return { mason, mason_lspconfig, lsp_config, conform }
