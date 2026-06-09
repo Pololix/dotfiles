@@ -28,66 +28,6 @@ local M = {
     { "v", "<Tab>", ">gv", o },
     { "v", "<S-j>", "<cmd>m '>+1<CR>gv=gv", o },
     { "v", "<S-k>", "<cmd>m '<-2<CR>gv=gv", o },
-
-    -- lsp related
-    { "n", "gd", vim.lsp.buf.definition, o },
-    { "n", "gh", vim.lsp.buf.hover, o },
-    { "n", "gr", vim.lsp.buf.rename, o },
-    { "n", "ca", vim.lsp.buf.code_action, o },
-
-    -- plugins
-    -- neotree
-    {
-        "n",
-        "<leader>n",
-        function()
-            local state = require("neo-tree.sources.manager").get_state("filesystem")
-
-            if
-                require("neo-tree.ui.renderer").window_exists(state)
-                and vim.api.nvim_get_current_win() == state.winid
-            then
-                vim.cmd("Neotree close")
-            else
-                vim.cmd("Neotree focus left")
-            end
-        end,
-        o,
-    },
-    { "n", "<leader><S-n>", "<cmd>Neotree focus float<CR>", o },
-    {
-        "n",
-        "<S-CR>",
-        function()
-            local state = require("neo-tree.sources.manager").get_state("filesystem")
-            local node = state.tree:get_node()
-            local depth = vim.v.count
-
-            require("extras.neotree").mass_toggle(state, node, depth)
-        end,
-        o,
-    },
-
-    -- telescope
-    { "n", "<leader>m", require("telescope.builtin").find_files, o },
-    { "n", "<leader>M", require("telescope.builtin").live_grep, o },
-
-    -- toggleterm
-    { "n", "<leader>t", "<cmd>ToggleTerm<CR>", o },
-    { "t", "<esc>", "<cmd>q!<CR>", o},
-
-    -- lazygit
-    { "n", "<leader>g", "<cmd>LazyGit<CR>", o },
-
-    -- conform
-    {
-        "n",
-        "fa",
-        function()
-            require("conform").format({ async = true, lsp_fallback = true })
-        end,
-        o,
-    },
 }
 
 for _, k in ipairs(M) do

@@ -11,24 +11,34 @@ local cmp = {
         local cmp = require("cmp")
 
         cmp.setup({
-            completion = {
-                autocomplete = true,
-            },
-            mapping = {
+            preselect = cmp.PreselectMode.Item,
+            mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                ["<Tab>"] = cmp.mapping.select_next_item(),
-                ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-                ["<Esc>"] = cmp.mapping.abort(),
-            },
+                ["<Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+            }),
             sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "path" },
             },
-            preselect = cmp.PreselectMode.Item,
-            view = {
-                docs = { auto = true }
-            }
+        })
+
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = { { name = "cmdline" } },
         })
     end,
 }

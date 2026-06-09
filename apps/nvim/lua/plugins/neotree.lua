@@ -85,9 +85,46 @@ local neotree = {
                     end,
                 },
             },
-
-            -- pTODO: create autocmd to remove signcolumn from neotree buffers
         })
+
+        -- pTODO: create autocmd to remove signcolumn from neotree buffers
+        local o = { noremap = true, silent = true }
+        local mappings = {
+            {
+                "n",
+                "<leader>n",
+                function()
+                    local state = require("neo-tree.sources.manager").get_state("filesystem")
+
+                    if
+                        require("neo-tree.ui.renderer").window_exists(state)
+                        and vim.api.nvim_get_current_win() == state.winid
+                    then
+                        vim.cmd("Neotree close")
+                    else
+                        vim.cmd("Neotree focus left")
+                    end
+                end,
+                o,
+            },
+            { "n", "<leader><S-n>", "<cmd>Neotree focus float<CR>", o },
+            {
+                "n",
+                "<S-CR>",
+                function()
+                    local state = require("neo-tree.sources.manager").get_state("filesystem")
+                    local node = state.tree:get_node()
+                    local depth = vim.v.count
+
+                    require("extras.neotree").mass_toggle(state, node, depth)
+                end,
+                o,
+            },
+        }
+
+        for _, k in ipairs(mappings) do
+            vim.keymap.set(k[1], k[2], k[3], k[4])
+        end
     end,
 }
 
