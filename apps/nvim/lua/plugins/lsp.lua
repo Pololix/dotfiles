@@ -18,6 +18,7 @@ local mason_lspconfig = {
             automatic_installation = true,
             ensure_installed = {
                 "lua_ls",
+                "stylua",
                 "rust_analyzer",
                 "gopls",
             },
@@ -58,13 +59,13 @@ local conform = {
     config = function()
         require("conform").setup({
             fomatters_by_ft = {
-                lua = { "stylua "},
+                lua = { "stylua " },
                 rust = { "rustfmt" },
                 gdscript = { "gdformat" },
             },
             format_on_save = true,
         })
-    end
+    end,
 }
 
 return { mason, mason_lspconfig, lsp_config, conform }
