@@ -1,3 +1,6 @@
+local o = { noremap = true, silent = true }
+local map = vim.keymap.set
+
 local mason = {
     "mason-org/mason.nvim",
     build = ":MasonUpdate",
@@ -51,19 +54,11 @@ local lsp_config = {
             },
         })
 
-        local o = { noremap = true, silent = true }
-        local mappings = {
-            { "n", "gd", vim.lsp.buf.definition, o },
-            { "n", "gh", vim.lsp.buf.hover, o },
-            { "n", "gr", vim.lsp.buf.rename, o },
-            { "n", "ca", vim.lsp.buf.code_action, o },
-        }
-
-        for _, k in ipairs(mappings) do
-            vim.keymap.set(k[1], k[2], k[3], k[4])
-        end
+        map("n", "gd", vim.lsp.buf.definition, o)
+        map("n", "gh", vim.lsp.buf.hover, o)
+        map("n", "gr", vim.lsp.buf.rename, o)
+        map("n", "ca", vim.lsp.buf.code_action, o)
     end,
 }
-
 
 return { mason, mason_lspconfig, lsp_config }

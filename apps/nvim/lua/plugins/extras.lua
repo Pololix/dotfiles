@@ -1,3 +1,6 @@
+local o = { noremap = true, silent = true }
+local map = vim.keymap.set
+
 local autopairs = {
     "windwp/nvim-autopairs",
 
@@ -18,15 +21,7 @@ local toggleterm = {
             },
         })
 
-        local o = { noremap = true, silent = true }
-        local mappings = {
-            { "n", "<leader>t", "<cmd>ToggleTerm<CR>", o },
-            { "t", "<esc>", "<cmd>q!<CR>", o },
-        }
-
-        for _, k in ipairs(mappings) do
-            vim.keymap.set(k[1], k[2], k[3], k[4])
-        end
+        map("n", "<leader>t", "<cmd>ToggleTerm<CR>", o)
     end,
 }
 

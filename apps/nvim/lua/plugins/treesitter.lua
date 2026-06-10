@@ -12,6 +12,9 @@ local treesitter = {
                 "lua",
                 "rust",
                 "gdscript",
+
+                "json",
+                "toml",
             },
 
             highlight = { enable = true },

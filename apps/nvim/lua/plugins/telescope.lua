@@ -1,3 +1,6 @@
+local o = { noremap = true, silent = true }
+local map = vim.keymap.set
+
 local telescope = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -40,15 +43,8 @@ local telescope = {
 
         require("telescope").load_extension("ui-select")
 
-        local o = { noremap = true, silent = true }
-        local mappings = {
-            { "n", "<leader>m", require("telescope.builtin").find_files, o },
-            { "n", "<leader>M", require("telescope.builtin").live_grep, o },
-        }
-
-        for _, k in ipairs(mappings) do
-            vim.keymap.set(k[1], k[2], k[3], k[4])
-        end
+        map("n", "<leader>m", require("telescope.builtin").find_files, o)
+        map("n", "<leader>M", require("telescope.builtin").live_grep, o)
     end,
 }
 
