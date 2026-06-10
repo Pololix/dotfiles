@@ -1,25 +1,29 @@
 #!/bin/bash
 
-action="$1"
+dir="$HOME/Screenshots"
+mkdir -p $dir
 
-mkdir ~/Screenshots
-file=~/Screenshots/$(date +"%d-%m_%H:%M")
+file="$dir/$(date +"%d-%m_%H:%M").png"
 
-if [[ "$action" == "fullscreen" ]]; then
-    grim "$file"
-    wl-copy < "$file"
+case "$1" in
+    region)
+        geo=$(slurp)
+        grim -g "$geo" "$file"
+        wl-copy --type image/png < "$file"
+        ;;
 
-elif [[ "$action" == "window" ]]; then
-    geo=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
-    grim -g "$geo" "$file"
-    wl-copy < "$file"
+    window)
+        geo=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+        grim -g "$geo" "$file"
+        wl-copy --type image/png < "$file"
+        ;;
 
-elif [[ "$action" == "region" ]]; then
-    geo=$(slurp)
-    grim -g "$geo" "$file"
-    wl-copy < "$file"
+    fullscreen)
+        grim "$file"
+        wl-copy --type image/png < "$file"
+        ;;
 
-else
-    echo "Unkown argument por screeshotting"
-
-fi
+    *)
+        echo "Unknown screenshot mode: $action"
+        ;;
+esac
