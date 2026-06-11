@@ -1,5 +1,4 @@
-require("core/autostart/autostart")
-require("core/autostart/env-vars")
+require("core/start/autostart")
 
 require("core/binds/keymaps")
 
