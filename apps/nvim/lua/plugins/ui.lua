@@ -23,12 +23,21 @@ local easyicons = {
                 [".gitignore"] = { icon = "󰊢", hl = palette.red.dark },
                 ["todo.md"] = { icon = "", hl = palette.white },
             },
+            stem = {
+                ["$-colors"] = { icon = "", hl = palette.grey.lightest },
+            },
             ext = {
-                ["json"] = { icon = "", hl = palette.yellow.dark },
-                ["conf"] = { icon = "", hl = palette.grey.lighter },
-
+                -- code
                 ["lua"] = { icon = "󰢱", hl = palette.blue.dark },
-                ["sh"] = { icon = "", hl = palette.white },
+                ["ts"] = { icon = "", hl = palette.blue.dark },
+
+                -- support
+                ["sh"] = { icon = "", hl = palette.grey.lightest },
+                ["conf"] = { icon = "", hl = palette.grey.lightest },
+
+                -- data
+                ["json"] = { icon = "", hl = palette.yellow.dark },
+                ["toml"] = { icon = "", hl = palette.yellow.dark },
             },
         })
     end,

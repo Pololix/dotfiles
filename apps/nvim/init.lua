@@ -26,3 +26,4 @@ require("lazy").setup("plugins", {
 
 require("core.keymaps")
 require("core.config")
+require("core.highlights")

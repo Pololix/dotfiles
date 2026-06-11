@@ -1,0 +1,10 @@
+[config.global]
+mode = "dark"
+
+[templates.kitty]
+input_path = '~/dotfiles/apps/matugen/templates/kitty-colors.conf'
+output_path = '~/dotfiles/apps/kitty/palette.conf'
+
+[templates.neovim]
+input_path = '~/dotfiles/apps/matugen/templates/nvim-colors.lua'
+output_path = '~/dotfiles/apps/nvim/lua/core/palette.lua'
