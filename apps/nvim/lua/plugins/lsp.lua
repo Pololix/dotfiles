@@ -14,6 +14,7 @@ local mason_lspconfig = {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
         "mason-org/mason.nvim",
+        "neovim/nvim-lspconfig",
     },
 
     config = function()
@@ -21,15 +22,27 @@ local mason_lspconfig = {
             automatic_installation = true,
             ensure_installed = {
                 "lua_ls",
-                "stylua",
-                "rust_analyzer",
-                "gopls",
-            },
+                "ts_ls",
 
-            handlers = {
-                function(server_name)
-                    vim.lsp.enable(server_name)
-                end,
+                "jsonls",
+                "tapio",
+            },
+        })
+    end,
+}
+
+local mason_tool_installer = {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = {
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
+    },
+
+    config = function()
+        require("mason-tool-installer").setup({
+            ensure_installed = {
+                "stylua",
+                "prettier",
             },
         })
     end,
@@ -56,9 +69,12 @@ local lsp_config = {
 
         map("n", "gd", vim.lsp.buf.definition, o)
         map("n", "gh", vim.lsp.buf.hover, o)
-        map("n", "gr", vim.lsp.buf.rename, o)
+        map("n", "rn", vim.lsp.buf.rename, o)
         map("n", "ca", vim.lsp.buf.code_action, o)
+
+        require("lsp.lua_ls")
+        require("lsp.ts_ls")
     end,
 }
 
-return { mason, mason_lspconfig, lsp_config }
+return { mason, mason_lspconfig, mason_tool_installer, lsp_config }

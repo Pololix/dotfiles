@@ -7,11 +7,13 @@ local conform = {
     config = function()
         require("conform").setup({
             fomatters_by_ft = {
-                lua = { "stylua " },
-                rust = { "rustfmt" },
-                gdscript = { "gdformat" },
+                lua = { "stylua" },
+                typescript = { "prettier" },
+
+                json = { "prettier" },
+                toml = { "tapio" },
             },
-            format_on_save = true,
+            format_on_save = { timeout_ms = 500, lsp_fallback = true },
         })
 
         map("n", "fa", function()

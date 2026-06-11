@@ -13,6 +13,7 @@ local autopairs = {
 
 local toggleterm = {
     "akinsho/toggleterm.nvim",
+
     config = function()
         require("toggleterm").setup({
             direction = "float",

@@ -1,6 +1,5 @@
 local greyshift = {
     "Pololix/greyshift.nvim",
-    lazy = false,
     priority = 1000,
 
     config = function()
@@ -11,7 +10,6 @@ local greyshift = {
 
 local easyicons = {
     "Pololix/easy-icons.nvim",
-    lazy = false,
     priority = 999,
 
     config = function()
