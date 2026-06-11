@@ -25,7 +25,6 @@ local mason_lspconfig = {
                 "ts_ls",
 
                 "jsonls",
-                "tapio",
             },
         })
     end,
