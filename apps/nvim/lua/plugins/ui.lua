@@ -1,34 +1,33 @@
 local easyicons = {
     "Pololix/easy-icons.nvim",
-    priority = 999,
 
     config = function()
         local palette = require("core.palette")
 
         require("easy-icons").setup({
             name = {
-                ["init.lua"]       = { icon = "󰢱", hl = palette.primary },
-                ["hyprland.lua"]   = { icon = "󰢱", hl = palette.primary },
+                ["init.lua"] = { icon = "󰢱", hl = palette.primary },
+                ["hyprland.lua"] = { icon = "󰢱", hl = palette.primary },
 
                 -- git related
-                [".gitignore"]     = { icon = "󰊢", hl = palette.error },
+                [".gitignore"] = { icon = "󰊢", hl = palette.error },
             },
             stem = {
                 ["$-colors"] = { icon = "", hl = palette.outline },
             },
             ext = {
                 -- code
-                ["lua"]  = { icon = "󰢱", hl = palette.primary },
-                ["ts"]   = { icon = "", hl = palette.tertiary },
+                ["lua"] = { icon = "󰢱", hl = palette.primary },
+                ["ts"] = { icon = "", hl = palette.tertiary },
 
                 -- support
-                ["sh"]   = { icon = "", hl = palette.on_surface_variant },
+                ["sh"] = { icon = "", hl = palette.on_surface_variant },
                 ["conf"] = { icon = "", hl = palette.on_surface_variant },
 
                 -- data formats
                 ["json"] = { icon = "", hl = palette.secondary },
                 ["toml"] = { icon = "", hl = palette.secondary },
-            }
+            },
         })
     end,
 }
