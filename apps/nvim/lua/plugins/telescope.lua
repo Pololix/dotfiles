@@ -21,15 +21,8 @@ local telescope = {
                 layout_strategy = "center",
 
                 path_display = { "smart" },
-                file_ignore_patterns = {
-                    "%.git/",
-                    "%.cache/",
-                    "build/",
-                    "out/",
-                    "%.o$",
-                    "%.a$",
-                    "%.json$",
-                },
+                hidden = false,
+                file_ignore_patterns = require("extras.ignore").telescope,
             },
             pickers = {
                 buffers = {

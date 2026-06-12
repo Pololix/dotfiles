@@ -37,7 +37,6 @@ local neotree = {
                 },
 
                 name = {
-                    trailing_slash = true,
                     use_git_status_colors = false,
                 },
 
@@ -67,12 +66,7 @@ local neotree = {
 
                 filtered_items = {
                     visible = true,
-                    hide_by_name = {
-                        "README.md",
-                        "LICENSE",
-                        "CMakeLists.txt",
-                        "stylua.toml",
-                    },
+                    hide_by_name = require("extras.ignore").neotree,
                 },
 
                 follow_current_file = {
