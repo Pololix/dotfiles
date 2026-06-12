@@ -1,6 +1,13 @@
 local palette = require("core.palette")
 local M = {}
 
+vim.cmd("highlight clear")
+
+if vim.fn.exists("syntax_on") == 1 then
+    vim.cmd("syntax reset")
+end
+
+
 M.ui = {
     Normal = { fg = palette.on_background, bg = palette.background },
     Special = { fg = palette.on_background, bg = palette.background },
@@ -69,43 +76,40 @@ M.ui = {
 
 M.syntax = {
     ["@comment"] = { fg = palette.outline, italic = true },
-    ["@keyword"] = { fg = palette.secondary, bold = true },
+    ["@keyword"] = { fg = palette.on_primary_container, bold = true },
+    ["@keyword.import"] = { fg = palette.primary },
 
     ["@function"] = { fg = palette.primary },
     ["@function.builtin"] = { fg = palette.primary, italic = true },
     ["@method"] = { fg = palette.primary },
     ["@constructor"] = { fg = palette.on_surface },
 
-    ["@type"] = { fg = palette.tertiary },
-    ["@type.builtin"] = { fg = palette.tertiary, italic = true },
+    ["@type"] = { fg = palette.on_tertiary_container },
+    ["@type.builtin"] = { fg = palette.on_tertiary_container, italic = true },
+
     ["@variable"] = { fg = palette.on_surface },
-    ["@variable.builtin"] = { fg = palette.secondary, italic = true },
     ["@parameter"] = { fg = palette.on_surface_variant },
     ["@variable.parameter"] = { fg = palette.on_surface_variant },
     ["@property"] = { fg = palette.on_surface },
     ["@field"] = { fg = palette.on_surface },
 
-    ["@constant"] = { fg = palette.tertiary },
+    ["@constant"] = { fg = palette.secondary },
     ["@string"] = { fg = palette.tertiary },
-    ["@number"] = { fg = palette.tertiary },
-    ["@boolean"] = { fg = palette.secondary, bold = true },
+    ["@number"] = { fg = palette.secondary },
+    ["@boolean"] = { fg = palette.on_primary_container, bold = true },
 
     ["@operator"] = { fg = palette.on_surface_variant },
     ["@punctuation"] = { fg = palette.on_surface_variant },
 
     -- fallback
     Comment = { fg = palette.outline, italic = true },
-    Keyword = { fg = palette.secondary, bold = true },
-
+    Keyword = { fg = palette.on_primary_container, bold = true },
     Function = { fg = palette.primary },
-
-    Type = { fg = palette.tertiary },
-
-    Constant = { fg = palette.tertiary },
+    Type = { fg = palette.on_tertiary_container },
+    Constant = { fg = palette.secondary },
     String = { fg = palette.tertiary },
-    Number = { fg = palette.tertiary },
-    Boolean = { fg = palette.secondary, bold = true },
-
+    Number = { fg = palette.secondary },
+    Boolean = { fg = palette.on_primary_container, bold = true },
     Operator = { fg = palette.on_surface_variant },
 }
 

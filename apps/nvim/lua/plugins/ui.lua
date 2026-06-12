@@ -1,44 +1,34 @@
-local greyshift = {
-    "Pololix/greyshift.nvim",
-    priority = 1000,
-
-    config = function()
-        require("greyshift").setup()
-        vim.cmd.colorscheme("greyshift")
-    end,
-}
-
 local easyicons = {
     "Pololix/easy-icons.nvim",
     priority = 999,
 
     config = function()
-        local palette = require("greyshift.palette").get()
+        local palette = require("core.palette")
 
         require("easy-icons").setup({
             name = {
-                ["init.lua"] = { icon = "󰢱", hl = palette.purple.dark },
-                ["hyprland.lua"] = { icon = "󰢱", hl = palette.purple.dark },
+                ["init.lua"]       = { icon = "󰢱", hl = palette.primary },
+                ["hyprland.lua"]   = { icon = "󰢱", hl = palette.primary },
 
-                [".gitignore"] = { icon = "󰊢", hl = palette.red.dark },
-                ["todo.md"] = { icon = "", hl = palette.white },
+                -- git related
+                [".gitignore"]     = { icon = "󰊢", hl = palette.error },
             },
             stem = {
-                ["$-colors"] = { icon = "", hl = palette.grey.lightest },
+                ["$-colors"] = { icon = "", hl = palette.outline },
             },
             ext = {
                 -- code
-                ["lua"] = { icon = "󰢱", hl = palette.blue.dark },
-                ["ts"] = { icon = "", hl = palette.blue.dark },
+                ["lua"]  = { icon = "󰢱", hl = palette.primary },
+                ["ts"]   = { icon = "", hl = palette.tertiary },
 
                 -- support
-                ["sh"] = { icon = "", hl = palette.grey.lightest },
-                ["conf"] = { icon = "", hl = palette.grey.lightest },
+                ["sh"]   = { icon = "", hl = palette.on_surface_variant },
+                ["conf"] = { icon = "", hl = palette.on_surface_variant },
 
-                -- data
-                ["json"] = { icon = "", hl = palette.yellow.dark },
-                ["toml"] = { icon = "", hl = palette.yellow.dark },
-            },
+                -- data formats
+                ["json"] = { icon = "", hl = palette.secondary },
+                ["toml"] = { icon = "", hl = palette.secondary },
+            }
         })
     end,
 }
@@ -64,4 +54,4 @@ local lualine = {
     end,
 }
 
-return { greyshift, easyicons, lualine }
+return { easyicons, lualine }

@@ -1,4 +1,6 @@
-- setup mutagen
+- setup mutagen: hyprland, hyprlock, firefox
+- change oppacity when entering nvim
+
 - setup modes (tablet, laptop) -> profiles.hypr
 - setup ags shell:
     - upper bar
