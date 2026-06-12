@@ -7,7 +7,6 @@ if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
 end
 
-
 M.ui = {
     Normal = { fg = palette.on_background, bg = palette.background },
     Special = { fg = palette.on_background, bg = palette.background },

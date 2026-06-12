@@ -13,6 +13,9 @@ local treesitter = {
 
                 "json",
                 "toml",
+
+                "markdown",
+                "markdown_inline",
             },
 
             highlight = { enable = true },

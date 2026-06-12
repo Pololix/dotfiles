@@ -1,74 +1,70 @@
-local M = {
-    -- number line
-    number = true,
-    relativenumber = true,
-    signcolumn = "yes",
+local o = vim.opt
 
-    -- status line
-    showmode = false,
-    cmdheight = 1,
-    laststatus = 3,
+-- number line
+o.number = true
+o.relativenumber = true
+o.signcolumn = "yes"
 
-    -- cursor
-    cursorline = true,
-    sidescrolloff = 12,
-    scrolloff = 12,
+-- status line
+o.showmode = false
+o.cmdheight = 1
+o.laststatus = 3
 
-    -- identations
-    tabstop = 4,
-    shiftwidth = 4,
-    expandtab = true,
-    smartindent = true,
+-- cursor
+o.cursorline = true
+o.sidescrolloff = 12
+o.scrolloff = 12
 
-    -- wrapping
-    wrap = false,
+-- identations
+o.tabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
+o.smartindent = true
 
-    -- search
-    hlsearch = true,
-    ignorecase = true,
-    smartcase = true,
+-- wrapping
+o.wrap = false
 
-    -- backup
-    backup = false,
-    writebackup = false,
-    swapfile = false,
+-- search
+o.hlsearch = true
+o.ignorecase = true
+o.smartcase = true
 
-    autoread = true,
-    autowrite = false,
-    confirm = true,
+-- backup
+o.backup = false
+o.writebackup = false
+o.swapfile = false
 
-    -- splits
-    splitright = true,
-    splitbelow = true,
+o.autoread = true
+o.autowrite = false
+o.confirm = true
 
-    -- folds
-    foldmethod = "expr",
-    foldexpr = "v:lua.vim.treesitter.foldexpr()",
-    foldcolumn = "2",
-    foldlevelstart = 99,
+-- splits
+o.splitright = true
+o.splitbelow = true
 
-    -- other
-    termguicolors = true,
-    updatetime = 250,
-    timeoutlen = 500,
-    clipboard = "unnamedplus",
-    list = true,
+-- folds
+o.foldmethod = "expr"
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+o.foldcolumn = "2"
+o.foldlevelstart = 99
 
-    -- chars
-    listchars = {
-        extends = "",
-        precedes = " ",
-    },
-    fillchars = {
-        eob = " ",
-        fold = " ",
-        foldopen = "",
-        foldclose = "",
-        foldinner = " ",
-        foldsep = " ",
-    },
+-- other
+o.termguicolors = true
+o.updatetime = 250
+o.timeoutlen = 500
+o.clipboard = "unnamedplus"
+o.list = true
+
+-- chars
+o.listchars = {
+    extends = "",
+    precedes = " ",
 }
-
-for config, value in pairs(M) do
-    vim.opt[config] = value
-end
+o.fillchars = {
+    eob = " ",
+    fold = " ",
+    foldopen = "",
+    foldclose = "",
+    foldinner = " ",
+    foldsep = " ",
+}

@@ -25,6 +25,9 @@ local mason_lspconfig = {
                 "ts_ls",
 
                 "jsonls",
+                "taplo",
+
+                "marksman",
             },
         })
     end,
@@ -71,8 +74,9 @@ local lsp_config = {
         map("n", "rn", vim.lsp.buf.rename, o)
         map("n", "ca", vim.lsp.buf.code_action, o)
 
-        require("lsp.lua_ls")
-        require("lsp.ts_ls")
+        require("lsp.lua")
+        require("lsp.ts")
+        require("lsp.md")
     end,
 }
 

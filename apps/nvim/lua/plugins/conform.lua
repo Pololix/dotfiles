@@ -3,15 +3,18 @@ local map = vim.keymap.set
 
 local conform = {
     "stevearc/conform.nvim",
-
     config = function()
         require("conform").setup({
-            fomatters_by_ft = {
+            formatters_by_ft = {
                 lua = { "stylua" },
                 typescript = { "prettier" },
 
                 json = { "prettier" },
-                toml = { "tapio" },
+                toml = { "taplo" },
+            },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
             },
         })
 
