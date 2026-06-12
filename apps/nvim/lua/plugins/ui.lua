@@ -6,10 +6,6 @@ local easyicons = {
 
         require("easy-icons").setup({
             name = {
-                ["init.lua"] = { icon = "󰢱", hl = palette.primary },
-                ["hyprland.lua"] = { icon = "󰢱", hl = palette.primary },
-
-                -- git related
                 [".gitignore"] = { icon = "󰊢", hl = palette.error },
             },
             stem = {
@@ -18,15 +14,15 @@ local easyicons = {
             ext = {
                 -- code
                 ["lua"] = { icon = "󰢱", hl = palette.primary },
-                ["ts"] = { icon = "", hl = palette.tertiary },
+                ["ts"] = { icon = "", hl = palette.tertiary },
 
                 -- support
-                ["sh"] = { icon = "", hl = palette.on_surface_variant },
-                ["conf"] = { icon = "", hl = palette.on_surface_variant },
+                ["sh"] = { icon = "", hl = palette.on_surface_variant },
+                ["conf"] = { icon = "", hl = palette.on_surface_variant },
 
                 -- data formats
-                ["json"] = { icon = "", hl = palette.secondary },
-                ["toml"] = { icon = "", hl = palette.secondary },
+                ["json"] = { icon = "", hl = palette.secondary },
+                ["toml"] = { icon = "", hl = palette.secondary },
             },
         })
     end,
