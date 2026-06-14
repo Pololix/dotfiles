@@ -1,0 +1,4 @@
+@define-color prim_bg {{ colors.surface.default.hex }};
+@define-color prim_fg {{ colors.on_surface.default.hex }};
+@define-color acc_bg {{ colors.secondary_container.default.hex }};
+@define-color acc_fg {{ colors.on_secondary_container.default.hex }};

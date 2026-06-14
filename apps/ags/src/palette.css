@@ -1,2 +1,4 @@
-@define-color background #1a110f;
-@define-color foreground #f1dfda;
+@define-color prim_bg #1a110f;
+@define-color prim_fg #f1dfda;
+@define-color acc_bg #5d4037;
+@define-color acc_fg #ffdbd1;

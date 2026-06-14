@@ -9,7 +9,5 @@ hl.on("hyprland.start", function()
     exc("wl-paste --type text --watch cliphist store")
     exc("wl-paste --type image --watch cliphist store")
 
-    -- temp
-    exc("waybar")
-    exc("mako")
+    exc("ags run ~/dotfiles/apps/ags/src/app.tsx")
 end)

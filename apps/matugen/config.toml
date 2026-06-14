@@ -8,3 +8,7 @@ output_path = '~/dotfiles/apps/kitty/palette.conf'
 [templates.neovim]
 input_path = '~/dotfiles/apps/matugen/templates/nvim-colors.lua'
 output_path = '~/dotfiles/apps/nvim/lua/core/palette.lua'
+
+[templates.ags]
+input_path = '~/dotfiles/apps/matugen/templates/ags-colors.css'
+output_path = '~/dotfiles/apps/ags/src/palette.css'

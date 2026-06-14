@@ -1,9 +1,11 @@
 import { createState } from "ags"
 import { Astal } from "ags/gtk4"
 import { Accessor } from "gnim"
+import { With } from "gnim"
 
-import { Power } from "./power"
-import { QuickSettings } from "./quick-settings"
+import { Power, PowerPanel } from "./power"
+import { QuickSettings, WifiPanel, BluetoothPanel, DisplayPanel } from "./quick-settings"
+
 
 export function Status() {
     const [active, setActive] = createState<string | null>(null)
@@ -32,7 +34,13 @@ function StatusPanel({ active, setActive }: StatusProp) {
             widthRequest={400}
             heightRequest={300}
         >
-            <label label="panel" />
+
+            <With value={active}>
+                {(v) => {
+                    if (v === "power") return <PowerPanel />
+                    return <box />
+                }}
+            </With>
         </window>
     )
 }

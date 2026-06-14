@@ -1,6 +1,7 @@
 import Battery from "gi://AstalBattery"
 import { createBinding } from "ags"
 import { StatusProp } from "./main"
+import { execAsync } from "ags/process"
 
 export function Power({ active, setActive }: StatusProp) {
     const battery = Battery.get_default()
@@ -29,4 +30,11 @@ function GetIcon(percentage: number, isCharging: boolean) {
     if (percentage < 0.6) return "󰁿"
     if (percentage < 0.8) return "󰂁"
     return "󰁹"
+}
+
+export function PowerPanel() {
+    return (
+        <box>
+        </box>
+    )
 }

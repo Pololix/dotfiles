@@ -16,11 +16,31 @@ export function QuickSettings({ active, setActive }: StatusProp) {
             </button>
 
             <button onClicked={() => {
-                setActive(active() === "brightness" ? null : "brightness")
+                setActive(active() === "display" ? null : "display")
             }}>
-                <label label="brightness" />
+                <label label="display" />
             </button>
         </box>
     )
 }
 
+export function WifiPanel() {
+    return (
+        <box>
+        </box>
+    )
+}
+
+export function BluetoothPanel() {
+    return (
+        <box>
+        </box>
+    )
+}
+
+export function DisplayPanel() {
+    return (
+        <box>
+        </box>
+    )
+}

@@ -16,6 +16,7 @@ local easyicons = {
                 ["lua"] = { icon = "󰢱", hl = palette.primary },
                 ["ts"] = { icon = "", hl = palette.tertiary },
                 ["tsx"] = { icon = "", hl = palette.tertiary },
+                ["css"] = { icon = "", hl = palette.tertiary },
 
                 -- support
                 ["sh"] = { icon = "", hl = palette.on_surface_variant },

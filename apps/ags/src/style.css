@@ -13,18 +13,19 @@ button {
 }
 
 .bar-component {
-    background-color: @background;
-    color: @foreground;
+    background-color: @prim_bg;
+    color: @prim_fg;
 
     border-radius: 15px;
     padding: 5px 15px;
 }
 
 .bar-panel {
-    background-color: @background;
-    color: @foreground;
+    background-color: @prim_bg;
+    color: @prim_fg;
 
     border-radius: 15px;
     margin-top: 10px;
     margin-right: 10px;
+    padding: 10px;
 }
