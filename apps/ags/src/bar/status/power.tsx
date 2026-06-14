@@ -21,6 +21,12 @@ export function Power({ active, setActive }: StatusProp) {
     )
 }
 
-function GetIcon(percentage, isCharging) {
-    return ""
+function GetIcon(percentage: number, isCharging: boolean) {
+    if (isCharging) return "󱐋"
+    if (percentage < 0.1) return "󰁺"
+    if (percentage < 0.2) return "󰁻"
+    if (percentage < 0.4) return "󰁽"
+    if (percentage < 0.6) return "󰁿"
+    if (percentage < 0.8) return "󰂁"
+    return "󰁹"
 }
