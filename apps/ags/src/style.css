@@ -1,9 +1,15 @@
 @import "./palette.css";
 
+button {
+    all: unset;
+}
+
 .bar {
     background-color: transparent;
 
-    margin: 5px 5px 0px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .bar-component {
@@ -12,4 +18,13 @@
 
     border-radius: 15px;
     padding: 4px 12px;
+}
+
+.bar-panel {
+    background-color: @background;
+    color: @foreground;
+
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-right: 15px;
 }

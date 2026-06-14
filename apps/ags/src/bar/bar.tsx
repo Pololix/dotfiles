@@ -2,10 +2,11 @@ import { Astal } from "ags/gtk4"
 
 //import { Media } from "./media"
 import { Clock } from "./clock"
-//import { Media } from "./status"
+import { Status } from "./status"
 
 export function Bar() {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+
     return (
         <window
             cssClasses={["bar"]}
@@ -15,6 +16,7 @@ export function Bar() {
         >
             <centerbox>
                 <Clock $type="center" />
+                <Status $type="end" />
             </centerbox>
         </window>
     )
