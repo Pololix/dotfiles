@@ -17,7 +17,7 @@ button {
     color: @foreground;
 
     border-radius: 15px;
-    padding: 4px 12px;
+    padding: 5px 15px;
 }
 
 .bar-panel {
@@ -25,6 +25,6 @@ button {
     color: @foreground;
 
     border-radius: 15px;
-    margin-top: 15px;
-    margin-right: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
 }

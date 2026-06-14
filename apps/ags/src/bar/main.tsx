@@ -1,6 +1,6 @@
 import { Astal } from "ags/gtk4"
 
-//import { Media } from "./media/main"
+import { Media } from "./media/main"
 import { Clock } from "./time/main"
 import { Status } from "./status/main"
 
@@ -15,6 +15,7 @@ export function Bar() {
             exclusivity={Astal.Exclusivity.EXCLUSIVE}
         >
             <centerbox>
+                <Media $type="start" />
                 <Clock $type="center" />
                 <Status $type="end" />
             </centerbox>

@@ -2,7 +2,7 @@ import { StatusProp } from "./main"
 
 export function QuickSettings({ active, setActive }: StatusProp) {
     return (
-        <box spacing={20} cssClasses={["bar-component"]}>
+        <box cssClasses={["bar-component"]} spacing={20}>
             <button onClicked={() => {
                 setActive(active() === "wifi" ? null : "wifi")
             }}>
