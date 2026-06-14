@@ -1,8 +1,8 @@
 import { Astal } from "ags/gtk4"
 
-//import { Media } from "./media"
-import { Clock } from "./clock"
-import { Status } from "./status"
+//import { Media } from "./media/main"
+import { Clock } from "./time/main"
+import { Status } from "./status/main"
 
 export function Bar() {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
