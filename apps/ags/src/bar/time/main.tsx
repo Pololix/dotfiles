@@ -1,6 +1,6 @@
 import { createPoll } from "ags/time"
 
-export function Clock() {
+export function Time() {
     const time = createPoll("", 1000, "date +%H:%M")
 
     return (
