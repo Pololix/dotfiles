@@ -1,0 +1,15 @@
+@import "./palette.css";
+
+.bar {
+    background-color: transparent;
+
+    margin: 5px 5px 0px;
+}
+
+.bar-component {
+    background-color: @background;
+    color: @foreground;
+
+    border-radius: 15px;
+    padding: 4px 12px;
+}

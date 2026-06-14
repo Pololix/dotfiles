@@ -3,5 +3,11 @@ import { createPoll } from "ags/time"
 export function Clock() {
     const time = createPoll("", 1000, "date +%H:%M")
 
-    return <label label={time} />
+    return (
+        <box
+            cssClasses={["bar-component"]}
+        >
+            <label label={time} />
+        </box>
+    )
 }
