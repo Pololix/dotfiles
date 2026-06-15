@@ -26,8 +26,6 @@ local mason_lspconfig = {
 
                 "jsonls",
                 "taplo",
-
-                "marksman",
             },
         })
     end,
@@ -76,7 +74,6 @@ local lsp_config = {
 
         require("lsp.lua")
         require("lsp.ts")
-        require("lsp.md")
     end,
 }
 
