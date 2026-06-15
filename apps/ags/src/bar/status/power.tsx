@@ -4,6 +4,7 @@ import { StatusProp } from "./main"
 
 export function Power({ active, setActive }: StatusProp) {
     const battery = Battery.get_default()
+
     const percentage = createBinding(battery, "percentage")
     const isCharging = createBinding(battery, "charging")
 
