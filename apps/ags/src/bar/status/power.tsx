@@ -18,7 +18,6 @@ export function Power() {
 
     return (
         <button cssClasses={["bar-component"]} onClicked={() => {
-
         }}>
             <label label={tag} />
         </button >

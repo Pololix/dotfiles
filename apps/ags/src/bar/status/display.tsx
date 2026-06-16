@@ -1,7 +1,6 @@
 export function Display() {
     return (
-        <button cssClasses={["bar-component"]} onClicked={() => {
-
+        <button onClicked={() => {
         }}>
             <label label="display" />
         </button >

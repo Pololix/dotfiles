@@ -28,7 +28,7 @@ export function Bluetooth() {
     })
 
     return (
-        <button cssClasses={["bar-component"]} onClicked={() => {
+        <button onClicked={() => {
         }}>
             <label label={tag} />
         </button >

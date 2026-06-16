@@ -20,7 +20,6 @@ export function Volume() {
 
     return (
         <button cssClasses={["bar-component"]} onClicked={() => {
-
         }}>
             <label label={tag} />
         </button >

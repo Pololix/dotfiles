@@ -22,7 +22,7 @@ export function Wifi() {
     })
 
     return (
-        <button cssClasses={["bar-component"]} onClicked={() => {
+        <button onClicked={() => {
         }}>
             <label label={tag} />
         </button >
