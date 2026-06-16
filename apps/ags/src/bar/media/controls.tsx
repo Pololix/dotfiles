@@ -7,7 +7,7 @@ export function Controls() {
     const [players, setPlayers] = createState(mprs.get_players())
 
     mprs.connect("items-changed", () => {
-        setPlayers(mprs.get_players)
+        setPlayers(mprs.get_players())
     })
 
     const player = createComputed(() => players()[0])
