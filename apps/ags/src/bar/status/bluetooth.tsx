@@ -1,59 +1,36 @@
-import Bluetooth from "gi://AstalBluetooth"
+import bluetooth from "gi://AstalBluetooth"
 import { createBinding, createComputed } from "ags"
-import { StatusProp } from "./main"
+import { GetIcon, GetDeviceIcon, GetPowerIcon } from "../../assets/icons"
 
-export function BluetoothConnection({ active, setActive }: StatusProp) {
-    const bluetooth = Bluetooth.get_default()
+export function Bluetooth() {
+    const blth = bluetooth.get_default()
 
-    const devices = createBinding(bluetooth, "devices")
-    const isPowered = createBinding(bluetooth, "is_powered")
-    const isConnected = createBinding(bluetooth, "is_connected")
+    const devices = createBinding(blth, "devices")
+    const isPowered = createBinding(blth, "is_powered")
+    const isConnected = createBinding(blth, "is_connected")
 
     const tag = createComputed(() => {
         const p = isPowered()
 
-        if (!p) return "󰂲"
+        if (!p) return GetIcon("bluetooth-disconnected")
 
         const c = isConnected()
         const ds = devices()
         const d = ds.find((v) => v.connected)
 
-        if (!d || !c) return "󰂯"
+        if (!d || !c) return GetIcon("bluetooth")
 
         const n = d.name
-        const b = d.battery_percentage
+        const b = Math.round(d.battery_percentage * 100)
         const icon = GetDeviceIcon(d.icon)
-        const bat_icon = GetBatteryIcon(b)
+        const bat_icon = GetPowerIcon(b)
         return icon + " " + n + " " + bat_icon
     })
 
     return (
-        <button onClicked={() => {
-            setActive(active() === "bluetooth" ? null : "bluetooth")
+        <button cssClasses={["bar-component"]} onClicked={() => {
         }}>
             <label label={tag} />
-        </button>
-    )
-}
-
-function GetDeviceIcon(type: string) {
-    if (type.includes("headset")) return "󰋋"
-    if (type.includes("mouse")) return "󰍽"
-    return "󰟢"
-}
-
-function GetBatteryIcon(percentage: number) {
-    if (percentage < 0.1) return "󰂃"
-    if (percentage < 0.2) return "󰁻"
-    if (percentage < 0.4) return "󰁽"
-    if (percentage < 0.6) return "󰁿"
-    if (percentage < 0.8) return "󰂁"
-    return "󰁹"
-}
-
-export function BluetoothConnectionPanel() {
-    return (
-        <box>
-        </box>
+        </button >
     )
 }

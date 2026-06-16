@@ -1,19 +1,9 @@
-import { StatusProp } from "./main"
-
-export function Display({ active, setActive }: StatusProp) {
-
+export function Display() {
     return (
-        <button onClicked={() => {
-            setActive(active() === "display" ? null : "display")
+        <button cssClasses={["bar-component"]} onClicked={() => {
+
         }}>
             <label label="display" />
-        </button>
-    )
-}
-
-export function DisplayPanel() {
-    return (
-        <box>
-        </box>
+        </button >
     )
 }

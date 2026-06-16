@@ -1,8 +1,9 @@
-import Wp from "gi://AstalWp"
+import wp from "gi://AstalWp"
 import { createBinding, createComputed } from "ags"
+import { GetIcon } from "../../assets/icons"
 
 export function Volume() {
-    const device = Wp.get_default().get_default_speaker()
+    const device = wp.get_default().get_default_speaker()
 
     const percentage = createBinding(device, "volume")
     const isMuted = createBinding(device, "mute")
@@ -10,14 +11,18 @@ export function Volume() {
     const tag = createComputed(() => {
         const m = isMuted()
 
-        if (m) return ""
+        if (m) return GetIcon("mute")
 
-        const p = percentage()
-        if (p === 0) return "" + " " + Math.round(p * 100) + "%"
-        return "" + " " + Math.round(p * 100) + "%"
+        const p = Math.round(percentage() * 100)
+        if (p === 0) return GetIcon("mute") + " " + p + "%"
+        return GetIcon("volume") + " " + p + "%"
     })
 
     return (
-        <label cssClasses={["bar-component"]} label={tag} />
+        <button cssClasses={["bar-component"]} onClicked={() => {
+
+        }}>
+            <label label={tag} />
+        </button >
     )
 }
