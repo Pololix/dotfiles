@@ -13,7 +13,10 @@ export function GetIcon(name: string) {
   if (name === "wifi-disconnected") return "󰒭";
   if (name === "bluetooth-disconnected") return "󰂲";
   if (name === "bluetooth") return "󰂯";
+  if (name === "display") return "󰍹";
+  if (name === "brightness") return "󰃟";
 
+  // power
   if (name === "charging") return "󱐋";
 }
 

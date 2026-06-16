@@ -1,10 +1,10 @@
 import { GetIcon } from "../../assets/icons"
 
-export function Display() {
+export function Brightness() {
     return (
         <button onClicked={() => {
         }}>
-            <label label={GetIcon("display")} />
+            <label label={GetIcon("brightness")} />
         </button >
     )
 }

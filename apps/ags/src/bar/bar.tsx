@@ -6,6 +6,7 @@ import { Clock } from "./time/clock"
 import { Wifi } from "./status/wifi"
 import { Bluetooth } from "./status/bluetooth"
 import { Display } from "./status/display"
+import { Brightness } from "./status/brightness"
 import { Power } from "./status/power"
 
 export function Bar() {
@@ -31,6 +32,7 @@ export function Bar() {
                         <Wifi />
                         <Bluetooth />
                         <Display />
+                        <Brightness />
                     </box>
                     <Power />
                 </box>
