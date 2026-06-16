@@ -11,9 +11,17 @@ export function Controls() {
     })
 
     const player = createComputed(() => players()[0])
+    const title = createComputed(() => {
+        if (player() === undefined) return ""
+        return player().title
+    })
 
     return (
-        <box cssClasses={["bar-component"]} spacing={20}>
+        <box
+            cssClasses={["bar-component"]}
+            spacing={20}
+            visible={player((v) => v !== undefined)}
+        >
             <button onClicked={() => {
                 if (player() === undefined) return
                 player().previous()
@@ -34,6 +42,7 @@ export function Controls() {
             }}>
                 <label label={GetIcon("next")} />
             </button>
+            <label label={title} />
         </box>
     )
 }
