@@ -3,8 +3,8 @@ import { Astal } from "ags/gtk4"
 import { Accessor } from "gnim"
 import { With } from "gnim"
 
-import { Wifi, WifiPanel } from "./wifi"
-import { Bluetooth, BluetoothPanel } from "./bluetooth"
+import { NetworkConnection, NetworkConnectionPanel } from "./network"
+import { BluetoothConnection, BluetoothConnectionPanel } from "./bluetooth"
 import { Display, DisplayPanel } from "./display"
 import { Power, PowerPanel } from "./power"
 
@@ -16,8 +16,8 @@ export function Status() {
     return (
         <box spacing={5}>
             <box cssClasses={["bar-component"]} spacing={20}>
-                <Wifi active={active} setActive={setActive} />
-                <Bluetooth active={active} setActive={setActive} />
+                <NetworkConnection active={active} setActive={setActive} />
+                <BluetoothConnection active={active} setActive={setActive} />
                 <Display active={active} setActive={setActive} />
             </box>
             <Power active={active} setActive={setActive} />
@@ -43,8 +43,8 @@ function StatusPanel({ active, setActive }: StatusProp) {
 
             <With value={active}>
                 {(v) => {
-                    if (v === "wifi") return <WifiPanel />
-                    if (v === "bluetooth") return <BluetoothPanel />
+                    if (v === "network") return <NetworkConnectionPanel />
+                    if (v === "bluetooth") return <BluetoothConnectionPanel />
                     if (v === "display") return <DisplayPanel />
                     if (v === "power") return <PowerPanel />
                     return <box />

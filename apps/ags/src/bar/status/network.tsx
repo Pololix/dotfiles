@@ -2,7 +2,7 @@ import Network from "gi://AstalNetwork"
 import { createBinding, createComputed } from "ags"
 import { StatusProp } from "./main"
 
-export function Wifi({ active, setActive }: StatusProp) {
+export function NetworkConnection({ active, setActive }: StatusProp) {
     const wifi = Network.get_default().get_wifi()
 
     const isConnected = createBinding(wifi, "enabled")
@@ -16,13 +16,13 @@ export function Wifi({ active, setActive }: StatusProp) {
         const s = strength()
 
         const icon = GetIcon(s, c)
-        if (!c) return icon + " - "
+        if (!c) return icon
         return icon + " " + n
     })
 
     return (
         <button onClicked={() => {
-            setActive(active() === "wifi" ? null : "wifi")
+            setActive(active() === "network" ? null : "network")
         }}>
             <label label={tag} />
         </button>
@@ -38,7 +38,7 @@ function GetIcon(strength: number, isConnected: boolean) {
     return "󰤨"
 }
 
-export function WifiPanel() {
+export function NetworkConnectionPanel() {
     return (
         <box>
         </box>
