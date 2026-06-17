@@ -1,42 +1,85 @@
-local exc = hl.dsp.exec_cmd
-local win = hl.dsp.window
+local exec = hl.dsp.exec_cmd
+local window = hl.dsp.window
+local workspace = hl.dsp.workspace
+local focus = hl.dsp.focus
 
 local mod = "SUPER"
 
-local LMB = ":mouse272"
-local RMB = ":mouse273"
-local MMB = ":mouse274"
+local LMB = "mouse:272"
+local RMB = "mouse:273"
+local MMB = "mouse:274"
+
+-- mods: SUPER, SHIFT, CTRL, ALT
+-- special keys: Escape, Tab, Space, Return (Enter), Backspace
 
 local M = {
     -- Quick apps
-    [mod .. " + Return"] = exc("kitty"),
-    [mod .. " + Space"] = exc("fuzzel"),
-    [mod .. " + Escape"] = exc("hyprlock"),
+    [mod .. " + Return"] = exec("kitty"),
+    [mod .. " + Space"] = exec("fuzzel"),
 
     -- Window nav
-    [mod .. " + h"] = hl.dsp.focus({ direction = "l" }),
-    [mod .. " + j"] = hl.dsp.focus({ direction = "d" }),
-    [mod .. " + k"] = hl.dsp.focus({ direction = "u" }),
-    [mod .. " + l"] = hl.dsp.focus({ direction = "r" }),
+    [mod .. " + h"] = focus({ direction = "l" }),
+    [mod .. " + j"] = focus({ direction = "d" }),
+    [mod .. " + k"] = focus({ direction = "u" }),
+    [mod .. " + l"] = focus({ direction = "r" }),
 
-    [mod .. " + q"] = win.kill(),
-    [mod .. " + f"] = win.fullscreen(),
+    [mod .. " + SHIFT + h"] = window.move({ direction = "l" }),
+    [mod .. " + SHIFT + j"] = window.move({ direction = "d" }),
+    [mod .. " + SHIFT + k"] = window.move({ direction = "u" }),
+    [mod .. " + SHIFT + l"] = window.move({ direction = "r" }),
+
+    [mod .. " + q"] = window.close(),
+    [mod .. " + f"] = window.fullscreen(),
+    [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
+    [mod .. " + Escape"] = workspace.toggle_special("trash"),
+    [mod .. " + Backspace"] = workspace.toggle_special("trash"),
+
+    [mod .. " + " .. LMB] = window.drag(),
+    [mod .. " + " .. RMB] = window.resize(),
+    [mod .. " + " .. MMB] = window.float(),
+
+    ["ALT + Tab"] = function()
+        local active = hl.get_active_window()
+        local fullscreen = active ~= nil and active.fullscreen ~= 0
+        if fullscreen then
+            hl.dispatch(window.fullscreen())
+            hl.dispatch(window.cycle_next())
+            hl.dispatch(window.fullscreen())
+        else
+            hl.dispatch(window.cycle_next())
+        end
+    end,
+
+    [mod .. " + Tab"] = function()
+        local active = hl.get_active_window()
+        local fullscreen = active ~= nil and active.fullscreen ~= 0
+        if fullscreen then
+            hl.dispatch(window.fullscreen())
+            hl.dispatch(window.cycle_next())
+            hl.dispatch(window.fullscreen())
+        else
+            hl.dispatch(window.cycle_next())
+        end
+    end,
 
     -- System
-    ["XF86MonBrightnessUp"] = exc("brightnessctl set 5%+"),
-    ["XF86MonBrightnessDown"] = exc("brightnessctl set 5%-"),
+    ["XF86MonBrightnessUp"] = exec("brightnessctl set 5%+"),
+    ["XF86MonBrightnessDown"] = exec("brightnessctl set 5%-"),
 
-    ["XF86AudioRaiseVolume"] = exc("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
-    ["XF86AudioLowerVolume"] = exc("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    ["XF86AudioMute"] = exc("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+    ["XF86AudioRaiseVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
+    ["XF86AudioLowerVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+    ["XF86AudioMute"] = exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
 
     -- Screenshots
-    ["SUPER + SHIFT + s"] = exc("bash ~/dotfiles/scripts/screenshot.sh region"),
-
-    -- Clipboard
-    ["CONTROL + SHIFT + v"] = exc("bash ~/dotfiles/scripts/pick.sh"),
+    ["SUPER + SHIFT + s"] = exec("bash ~/dotfiles/scripts/screenshot.sh region"),
 }
 
 for key, action in pairs(M) do
     hl.bind(key, action)
+end
+
+-- Workspaces
+for i = 1, 9 do
+    hl.bind(mod .. " + " .. i, focus({ workspace = i }))
+    hl.bind(mod .. " + SHIFT + " .. i, window.move({ workspace = i }))
 end
