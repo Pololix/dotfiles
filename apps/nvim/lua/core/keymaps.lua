@@ -8,7 +8,6 @@ map("n", "<leader>?", "<cmd>messages<CR>", o)
 map("n", "<leader>w", "<cmd>w<CR>", o)
 map("n", "<leader>q", "<cmd>q!<CR>", o)
 map("n", "<leader>wq", "<cmd>wq<CR>", o)
-map("t", "<esc>", "<cmd>q!<CR>", o)
 
 -- window navigation
 map("n", "<leader>h", "<C-w>h", o)

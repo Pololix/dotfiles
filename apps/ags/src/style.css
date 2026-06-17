@@ -1,4 +1,4 @@
-@import "./palette.css";
+@import "./assets/palette.css";
 
 button {
     all: unset;
@@ -16,7 +16,7 @@ button {
     background-color: @prim_bg;
     color: @prim_fg;
 
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 5px 15px;
 }
 
