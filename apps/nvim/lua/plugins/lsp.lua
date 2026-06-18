@@ -22,6 +22,7 @@ local mason_lspconfig = {
             automatic_installation = true,
             ensure_installed = {
                 "lua_ls",
+                "rust_analyzer",
                 "ts_ls",
 
                 "jsonls",
@@ -73,6 +74,7 @@ local lsp_config = {
         map("n", "ca", vim.lsp.buf.code_action, o)
 
         require("lsp.lua")
+        require("lsp.rust")
         require("lsp.ts")
     end,
 }

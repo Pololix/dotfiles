@@ -7,6 +7,7 @@ map("n", "<leader>?", "<cmd>messages<CR>", o)
 -- writing and quitting
 map("n", "<leader>w", "<cmd>w<CR>", o)
 map("n", "<leader>q", "<cmd>q!<CR>", o)
+map("t", "<leader>q", "<cmd>q!<CR>", o)
 map("n", "<leader>wq", "<cmd>wq<CR>", o)
 
 -- window navigation

@@ -53,10 +53,6 @@ local neotree = {
                         conflict = "",
                     },
                 },
-
-                symlink_target = {
-                    enabled = true,
-                },
             },
 
             sources = { "filesystem" },

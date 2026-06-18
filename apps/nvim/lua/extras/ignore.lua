@@ -9,6 +9,10 @@ M.neotree = {
     "stylua.toml",
     "lazy-lock.json",
 
+    -- rust
+    "Cargo.toml",
+    "Cargo.lock",
+
     -- ts
     "@girs",
     "node_modules",

@@ -1,13 +1,14 @@
-local exc = hl.exec_cmd
+local exec = hl.exec_cmd
 
 hl.on("hyprland.start", function()
-    exc("hypridle")
-    exc("hyprlock")
-    exc("hyprpaper")
-    exc("hyprsunsset")
+    exec("hypridle")
+    exec("hyprlock")
+    exec("hyprpaper")
+    exec("hyprsunsset")
 
-    exc("wl-paste --type text --watch cliphist store")
-    exc("wl-paste --type image --watch cliphist store")
+    exec("wl-paste --type text --watch cliphist store")
+    exec("wl-paste --type image --watch cliphist store")
 
-    exc("ags run ~/dotfiles/apps/ags/src/app.tsx")
+    exec("ags run ~/dotfiles/apps/ags/src/app.tsx")
+    exec("[workspace special:spotify silent] spotify-launcher")
 end)

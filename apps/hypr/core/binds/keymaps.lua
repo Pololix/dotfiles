@@ -28,11 +28,11 @@ local M = {
     [mod .. " + SHIFT + k"] = window.move({ direction = "u" }),
     [mod .. " + SHIFT + l"] = window.move({ direction = "r" }),
 
-    [mod .. " + q"] = window.close(),
+    [mod .. " + q"] = window.kill(),
     [mod .. " + f"] = window.fullscreen(),
     [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
     [mod .. " + Escape"] = workspace.toggle_special("trash"),
-    [mod .. " + Backspace"] = workspace.toggle_special("trash"),
+    [mod .. " + Backspace"] = workspace.toggle_special("spotify"),
 
     [mod .. " + " .. LMB] = window.drag(),
     [mod .. " + " .. RMB] = window.resize(),

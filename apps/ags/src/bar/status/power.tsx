@@ -12,7 +12,7 @@ export function Power() {
         const p = Math.round(percentage() * 100)
         const c = isCharging()
 
-        if (c) return GetIcon("charging") + p + "%"
+        if (c) return GetIcon("charging") + " " + p + "%"
         return GetPowerIcon(p) + " " + p + "%"
     })
 

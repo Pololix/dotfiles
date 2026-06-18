@@ -8,6 +8,7 @@ local treesitter = {
 
             ensure_installed = {
                 "lua",
+                "rust",
                 "typescript",
                 "tsx",
 

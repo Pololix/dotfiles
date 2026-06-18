@@ -14,6 +14,7 @@ local easyicons = {
             ext = {
                 -- code
                 ["lua"] = { icon = "󰢱", hl = palette.primary },
+                ["rust"] = { icon = "", hl = palette.primary },
                 ["ts"] = { icon = "", hl = palette.tertiary },
                 ["tsx"] = { icon = "", hl = palette.tertiary },
                 ["css"] = { icon = "", hl = palette.tertiary },
