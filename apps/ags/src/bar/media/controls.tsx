@@ -1,13 +1,13 @@
-import mpris from "gi://AstalMpris"
+import Mpris from "gi://AstalMpris"
 import { createState, createComputed } from "ags"
 import { GetIcon } from "../../assets/icons"
 
 export function Controls() {
-    const mprs = mpris.get_default()
-    const [players, setPlayers] = createState(mprs.get_players())
+    const mpris = Mpris.get_default()
+    const [players, setPlayers] = createState(mpris.get_players())
 
-    mprs.connect("items-changed", () => {
-        setPlayers(mprs.get_players())
+    mpris.connect("items-changed", () => {
+        setPlayers(mpris.get_players())
     })
 
     const player = createComputed(() => players()[0])

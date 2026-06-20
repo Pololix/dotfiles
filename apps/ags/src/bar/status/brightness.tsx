@@ -1,6 +1,6 @@
 import { GetIcon } from "../../assets/icons"
 
-export function Brightness() {
+export function BrightnessButton() {
     return (
         <button onClicked={() => {
         }}>

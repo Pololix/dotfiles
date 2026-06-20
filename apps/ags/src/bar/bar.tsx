@@ -1,13 +1,16 @@
 import { Astal } from "ags/gtk4"
 
-import { Volume } from "./media/volume"
+import { VolumeDisplay } from "./media/volume"
 import { Controls } from "./media/controls"
-import { Clock } from "./time/clock"
-import { Wifi } from "./status/wifi"
-import { Bluetooth } from "./status/bluetooth"
-import { Display } from "./status/display"
-import { Brightness } from "./status/brightness"
-import { Power } from "./status/power"
+
+import { TimeDisplay } from "./time/clock"
+
+import { NetworkStatus } from "./status/wifi"
+import { BluetoothStatus } from "./status/bluetooth"
+import { DisplayButton } from "./status/display"
+import { BrightnessButton } from "./status/brightness"
+
+import { PowerDisplay } from "./status/power"
 
 export function Bar() {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
@@ -21,20 +24,20 @@ export function Bar() {
         >
             <centerbox>
                 <box spacing={5} $type="start">
-                    <Volume />
+                    <VolumeDisplay />
                     <Controls />
                 </box>
 
-                <Clock $type="center" />
+                <TimeDisplay $type="center" />
 
                 <box spacing={5} $type="end">
                     <box cssClasses={["bar-component"]} spacing={20}>
-                        <Wifi />
-                        <Bluetooth />
-                        <Display />
-                        <Brightness />
+                        <NetworkStatus />
+                        <BluetoothStatus />
+                        <DisplayButton />
+                        <BrightnessButton />
                     </box>
-                    <Power />
+                    <PowerDisplay />
                 </box>
             </centerbox>
         </window>

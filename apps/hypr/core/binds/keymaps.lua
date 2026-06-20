@@ -30,9 +30,10 @@ local M = {
 
     [mod .. " + q"] = window.kill(),
     [mod .. " + f"] = window.fullscreen(),
-    [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
     [mod .. " + Escape"] = workspace.toggle_special("trash"),
+    [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
     [mod .. " + Backspace"] = workspace.toggle_special("spotify"),
+    [mod .. " + SHIFT + Backspace"] = window.move({ workspace = "special:spotify", follow = false }),
 
     [mod .. " + " .. LMB] = window.drag(),
     [mod .. " + " .. RMB] = window.resize(),

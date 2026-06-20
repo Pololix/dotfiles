@@ -1,9 +1,10 @@
-import wp from "gi://AstalWp"
+import Wp from "gi://AstalWp"
 import { createBinding, createComputed } from "ags"
 import { GetIcon } from "../../assets/icons"
 
-export function Volume() {
-    const device = wp.get_default().get_default_speaker()
+export function VolumeDisplay() {
+    const wp = Wp.get_default()
+    const device = wp.get_default_speaker()
 
     const percentage = createBinding(device, "volume")
     const isMuted = createBinding(device, "mute")

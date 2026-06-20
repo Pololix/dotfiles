@@ -1,13 +1,13 @@
-import bluetooth from "gi://AstalBluetooth"
+import Bluetooth from "gi://AstalBluetooth"
 import { createBinding, createComputed } from "ags"
 import { GetIcon, GetDeviceIcon, GetPowerIcon } from "../../assets/icons"
 
-export function Bluetooth() {
-    const blth = bluetooth.get_default()
+export function BluetoothStatus() {
+    const bluetooth = Bluetooth.get_default()
 
-    const devices = createBinding(blth, "devices")
-    const isPowered = createBinding(blth, "is_powered")
-    const isConnected = createBinding(blth, "is_connected")
+    const devices = createBinding(bluetooth, "devices")
+    const isPowered = createBinding(bluetooth, "is_powered")
+    const isConnected = createBinding(bluetooth, "is_connected")
 
     const tag = createComputed(() => {
         const p = isPowered()

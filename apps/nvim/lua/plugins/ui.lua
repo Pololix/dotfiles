@@ -14,18 +14,18 @@ local easyicons = {
             ext = {
                 -- code
                 ["lua"] = { icon = "󰢱", hl = palette.primary },
-                ["rust"] = { icon = "", hl = palette.primary },
+                ["rs"] = { icon = "", hl = palette.primary },
                 ["ts"] = { icon = "", hl = palette.tertiary },
                 ["tsx"] = { icon = "", hl = palette.tertiary },
                 ["css"] = { icon = "", hl = palette.tertiary },
 
                 -- support
                 ["sh"] = { icon = "", hl = palette.on_surface_variant },
-                ["conf"] = { icon = "", hl = palette.on_surface_variant },
 
                 -- data formats
                 ["json"] = { icon = "", hl = palette.secondary },
                 ["toml"] = { icon = "", hl = palette.secondary },
+                ["conf"] = { icon = "", hl = palette.secondary },
             },
         })
     end,

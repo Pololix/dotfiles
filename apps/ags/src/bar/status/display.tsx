@@ -1,6 +1,6 @@
 import { GetIcon } from "../../assets/icons"
 
-export function Display() {
+export function DisplayButton() {
     return (
         <button onClicked={() => {
         }}>

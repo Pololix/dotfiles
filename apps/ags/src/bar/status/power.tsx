@@ -1,12 +1,12 @@
-import battery from "gi://AstalBattery"
+import Battery from "gi://AstalBattery"
 import { createBinding, createComputed } from "ags"
 import { GetIcon, GetPowerIcon } from "../../assets/icons"
 
-export function Power() {
-    const btry = battery.get_default()
+export function PowerDisplay() {
+    const battery = Battery.get_default()
 
-    const percentage = createBinding(btry, "percentage")
-    const isCharging = createBinding(btry, "charging")
+    const percentage = createBinding(battery, "percentage")
+    const isCharging = createBinding(battery, "charging")
 
     const tag = createComputed(() => {
         const p = Math.round(percentage() * 100)

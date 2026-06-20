@@ -1,10 +1,10 @@
-import network from "gi://AstalNetwork"
+import Network from "gi://AstalNetwork"
 import { createBinding, createComputed } from "ags"
 import { GetWifiIcon } from "../../assets/icons"
 
-export function Wifi() {
-    const ntw = network.get_default()
-    const wifi = ntw.get_wifi()
+export function NetworkStatus() {
+    const network = Network.get_default()
+    const wifi = network.get_wifi()
 
     const isConnected = createBinding(wifi, "enabled")
     //const state = createBinding(network, "state")
