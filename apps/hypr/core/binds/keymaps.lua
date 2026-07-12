@@ -30,14 +30,16 @@ local M = {
 
     [mod .. " + q"] = window.kill(),
     [mod .. " + f"] = window.fullscreen(),
-    [mod .. " + Escape"] = workspace.toggle_special("trash"),
-    [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
-    [mod .. " + Backspace"] = workspace.toggle_special("spotify"),
-    [mod .. " + SHIFT + Backspace"] = window.move({ workspace = "special:spotify", follow = false }),
 
     [mod .. " + " .. LMB] = window.drag(),
     [mod .. " + " .. RMB] = window.resize(),
     [mod .. " + " .. MMB] = window.float(),
+
+    -- Special workspaces
+    [mod .. " + Escape"] = workspace.toggle_special("trash"),
+    [mod .. " + SHIFT + Escape"] = window.move({ workspace = "special:trash", follow = false }),
+    [mod .. " + Backspace"] = workspace.toggle_special("spotify"),
+    [mod .. " + SHIFT + Backspace"] = window.move({ workspace = "special:spotify", follow = false }),
 
     ["ALT + Tab"] = function()
         local active = hl.get_active_window()
@@ -51,24 +53,16 @@ local M = {
         end
     end,
 
-    [mod .. " + Tab"] = function()
-        local active = hl.get_active_window()
-        local fullscreen = active ~= nil and active.fullscreen ~= 0
-        if fullscreen then
-            hl.dispatch(window.fullscreen())
-            hl.dispatch(window.cycle_next())
-            hl.dispatch(window.fullscreen())
-        else
-            hl.dispatch(window.cycle_next())
-        end
-    end,
-
     -- System
     ["XF86MonBrightnessUp"] = exec("brightnessctl set 5%+"),
+    [mod .. " + XF86MonBrightnessUp"] = exec("brightnessctl set 100%"),
     ["XF86MonBrightnessDown"] = exec("brightnessctl set 5%-"),
+    [mod .. " + XF86MonBrightnessDown"] = exec("brightnessctl set 1"),
 
     ["XF86AudioRaiseVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
+    [mod .. " + XF86AudioRaiseVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%"),
     ["XF86AudioLowerVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+    [mod .. " + XF86AudioLowerVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"),
     ["XF86AudioMute"] = exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
 
     -- Screenshots

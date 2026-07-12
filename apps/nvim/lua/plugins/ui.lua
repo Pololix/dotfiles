@@ -52,4 +52,57 @@ local lualine = {
     end,
 }
 
-return { easyicons, lualine }
+local alpha = {
+    "goolord/alpha-nvim",
+    dependencies = {
+        "Pololix/easy-icons.nvim",
+    },
+    event = "VimEnter",
+
+    config = function()
+        local alpha = require("alpha")
+        local dashboard = require("alpha.themes.dashboard")
+
+        dashboard.section.header.val = {
+            "                                                     ",
+            "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
+            "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
+            "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
+            "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+            "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
+            "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
+            "                                                     ",
+        }
+
+        dashboard.section.buttons.val = {
+            dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>"),
+
+            dashboard.button("d", "  Dotfiles", ":e ~/dotfiles/<CR>"),
+            dashboard.button("p", "  Repos", ":e ~/repos/<CR>"),
+
+            dashboard.button("c", "  Settings", ":e ~/dotfiles/apps/nvim/<CR>"),
+        }
+        dashboard.config.layout = {
+            { type = "padding", val = 2 },
+            dashboard.section.header,
+            { type = "padding", val = 2 },
+            dashboard.section.buttons,
+        }
+
+        alpha.setup(dashboard.config)
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "BDeletePost*",
+            callback = function(event)
+                local fallback_name = vim.api.nvim_buf_get_name(event.buf)
+                local fallback_ft = vim.api.nvim_get_option_value("filetype", { buf = event.buf })
+                local fallback_empty = fallback_name == "" and fallback_ft == ""
+                if fallback_empty then
+                    vim.cmd("Alpha")
+                end
+            end,
+        })
+    end,
+}
+
+return { easyicons, lualine, alpha }
