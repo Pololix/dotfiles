@@ -76,6 +76,7 @@ local lsp_config = {
 
         require("lsp.lua")
         require("lsp.rust")
+        require("lsp.svelte")
         require("lsp.ts")
     end,
 }
