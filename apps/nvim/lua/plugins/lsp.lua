@@ -24,6 +24,7 @@ local mason_lspconfig = {
                 "lua_ls",
                 "rust_analyzer",
                 "ts_ls",
+                "svelte",
 
                 "jsonls",
                 "taplo",
