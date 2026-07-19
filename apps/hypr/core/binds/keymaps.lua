@@ -69,7 +69,7 @@ local M = {
     [mod .. " + XF86AudioPlay"] = exec("playerctl next"),
 
     -- Screenshots
-    -- ["SUPER + SHIFT + s"] = exec("bash ~/dotfiles/scripts/screenshot.sh region"),
+    ["SUPER + SHIFT + s"] = exec("bash ~/dotfiles/scripts/screenshot.sh region"),
 }
 
 for key, action in pairs(M) do
