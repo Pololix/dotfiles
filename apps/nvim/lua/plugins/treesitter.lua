@@ -11,6 +11,7 @@ local treesitter = {
                 "rust",
                 "typescript",
                 "tsx",
+                "svelte",
 
                 "json",
                 "toml",

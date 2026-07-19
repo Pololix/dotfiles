@@ -28,7 +28,7 @@ local M = {
     [mod .. " + SHIFT + k"] = window.move({ direction = "u" }),
     [mod .. " + SHIFT + l"] = window.move({ direction = "r" }),
 
-    [mod .. " + q"] = window.kill(),
+    [mod .. " + q"] = window.kill(), -- fix: kill all open windows of the same process, kill onnly active window
     [mod .. " + f"] = window.fullscreen(),
 
     [mod .. " + " .. LMB] = window.drag(),
@@ -53,20 +53,23 @@ local M = {
         end
     end,
 
-    -- System
+    -- Brightness
     ["XF86MonBrightnessUp"] = exec("brightnessctl set 5%+"),
     [mod .. " + XF86MonBrightnessUp"] = exec("brightnessctl set 100%"),
     ["XF86MonBrightnessDown"] = exec("brightnessctl set 5%-"),
     [mod .. " + XF86MonBrightnessDown"] = exec("brightnessctl set 1"),
 
+    -- Audio
     ["XF86AudioRaiseVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
     [mod .. " + XF86AudioRaiseVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%"),
     ["XF86AudioLowerVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
     [mod .. " + XF86AudioLowerVolume"] = exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"),
     ["XF86AudioMute"] = exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+    ["XF86AudioPlay"] = exec("playerctl play-pause"),
+    [mod .. " + XF86AudioPlay"] = exec("playerctl next"),
 
     -- Screenshots
-    ["SUPER + SHIFT + s"] = exec("bash ~/dotfiles/scripts/screenshot.sh region"),
+    -- ["SUPER + SHIFT + s"] = exec("bash ~/dotfiles/scripts/screenshot.sh region"),
 }
 
 for key, action in pairs(M) do
