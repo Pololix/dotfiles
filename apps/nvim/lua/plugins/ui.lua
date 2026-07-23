@@ -79,10 +79,10 @@ local alpha = {
         dashboard.section.buttons.val = {
             dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>"),
 
-            dashboard.button("d", "  Dotfiles", ":e ~/dotfiles/<CR>"),
-            dashboard.button("p", "  Repos", ":e ~/repos/<CR>"),
+            dashboard.button("r", "  Repos", ":e ~/repos/<CR>"),
 
-            dashboard.button("c", "  Settings", ":e ~/dotfiles/apps/nvim/<CR>"),
+            dashboard.button("d", "  Dotfiles", ":e ~/dotfiles/<CR>"),
+            dashboard.button("s", "  Settings", ":e ~/dotfiles/apps/nvim/<CR>"),
         }
         dashboard.config.layout = {
             { type = "padding", val = 2 },
