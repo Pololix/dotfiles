@@ -23,8 +23,6 @@ local mason_lspconfig = {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "ts_ls",
-                "svelte",
 
                 "jsonls",
                 "taplo",
@@ -76,8 +74,7 @@ local lsp_config = {
 
         require("lsp.lua")
         require("lsp.rust")
-        require("lsp.svelte")
-        require("lsp.ts")
+        require("lsp.wgsl")
     end,
 }
 
