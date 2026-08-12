@@ -1,22 +1,32 @@
 local treesitter = {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
 
     config = function()
-        require("nvim-treesitter").setup({
-            auto_install = true,
+        require("nvim-treesitter").setup()
 
-            ensure_installed = {
+        require("nvim-treesitter").install({
+            "lua",
+            "rust",
+            "wgsl",
+            "json",
+            "toml",
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = {
                 "lua",
                 "rust",
                 "wgsl",
-
                 "json",
                 "toml",
             },
-
-            highlight = { enable = true },
+            callback = function(args)
+                vim.treesitter.start(args.buf)
+            end,
         })
     end,
 }
+
 return treesitter

@@ -1,6 +1,7 @@
 -- cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl-analyzer
 -- cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgslfmt
-
+--
+vim.filetype.add({ extension = { wgsl = "wgsl" } })
 vim.lsp.enable("wgsl_analyzer")
 
 vim.lsp.config.wgsl_analyzer = {
