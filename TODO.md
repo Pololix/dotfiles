@@ -1,5 +1,12 @@
 # URGENT: 
 
+# Hardware: 
+- external monitor
+- external keyboard
+- dock/hub
+- NAS 
+- Mouse and mousepad
+
 # Hypr
 - setup hyprlock: date, hour, login panel and options + virtual keyboard (always active, one hand)
 - solve hypridle behaviour and make brightness changes relative to current brightness
@@ -12,11 +19,12 @@
 # AGS
 - icon revamp
 - notifications (remove mako)
+- system notifications (new device, volume, brightness, etc)
 - launcher (remove fuzzel)
 - interworkspace screen
 
 # Extras
-- setup mutagen: hyprland, hyprlock, firefox
+- setup mutagen: hyprland, hyprlock, firefox and review others
 - add whatsapp pwa and background notification daemon
 - spotify killswitch
 - revamp dotfiles folder

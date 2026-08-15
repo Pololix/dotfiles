@@ -25,13 +25,3 @@ vim.lsp.config.wgsl_analyzer = {
         },
     },
 }
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.wgsl",
-    callback = function(args)
-        if vim.fn.executable("wgslfmt") == 1 then
-            vim.cmd(string.format("silent! !wgslfmt %s", vim.fn.shellescape(args.file)))
-            vim.cmd("silent! edit!")
-        end
-    end,
-})

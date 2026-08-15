@@ -28,7 +28,8 @@ local M = {
     [mod .. " + SHIFT + k"] = window.move({ direction = "u" }),
     [mod .. " + SHIFT + l"] = window.move({ direction = "r" }),
 
-    [mod .. " + q"] = window.kill(), -- fix: kill all open windows of the same process, kill onnly active window
+    [mod .. " + q"] = window.close(), -- fix: kill all open windows of the same process, kill onnly active window
+    [mod .. " + SHIFT + q"] = window.kill(),
     [mod .. " + f"] = window.fullscreen(),
 
     [mod .. " + " .. LMB] = window.drag(),
